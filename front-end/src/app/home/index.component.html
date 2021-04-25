@@ -1,0 +1,44 @@
+<div class="nav-bar">
+    <mat-toolbar class="nav-bar-color">
+      <mat-toolbar-row>
+        <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>T.I. do Amanhã</span>
+        <span class="example-spacer"></span>
+        <div fxShow="true" fxHide.lt-md="true">
+  
+          <a href="#" mat-button>
+            <mat-icon>email</mat-icon>
+            Contato
+          </a>
+          
+          <!--AQUI É PRA SER O MODAL DE CADASTRO E LOGIN-->
+          <button mat-button>
+            <mat-icon>account_box</mat-icon>
+            Login
+          </button>
+  
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  
+    <mat-sidenav-container fxFlexFill>
+      <mat-sidenav #sidenav>
+        <mat-nav-list>
+          <a href="#" mat-list-item>
+            <mat-icon>email</mat-icon>
+            Contato
+          </a>
+          <a href="#" mat-list-item>
+            <mat-icon>account_box</mat-icon>
+            Login
+          </a>
+          <a (click)="sidenav.toggle()" mat-list-item>
+            <mat-icon>close</mat-icon> Fechar
+          </a>
+        </mat-nav-list>
+      </mat-sidenav>
+      <mat-sidenav-content fxFlexFill>CONTEÚDO DO SITE FICA AQUI</mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>

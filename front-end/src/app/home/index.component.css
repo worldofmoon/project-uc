@@ -1,0 +1,19 @@
+.nav-bar{
+    height: 100vh
+  }
+  
+  .nav-bar-color {
+    background-color:#0277bd;
+    color: #ffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+  }
+  
+  .example-icon {
+    padding: 0 1px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
