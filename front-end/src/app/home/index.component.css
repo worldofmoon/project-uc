@@ -1,3 +1,4 @@
+
 .nav-bar{
     height: 100vh
   }
@@ -16,4 +17,68 @@
   .example-spacer {
     flex: 1 1 auto;
   }
+
+  .cabecalho {
+    padding-top: 10px;
+    background: #B0C4DE;
+  }
+  
+  .cabecalho h2 {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .cabecalho p {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: -25px;
+    padding-bottom: 20px;
+  }
+  
+  .center {
+    text-align: center;
+    font-size: 2em;
+    margin: 0 0 1em;
+    clear: left;
+    padding: 3px;
+  }
+  
+  .divider-custom {
+    margin: 1rem 0 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+  }
+  
+  .divider-custom .divider-custom-line:first-child {
+    margin-right: 1rem;
+  }
+  
+  .divider-custom .divider-custom-line:last-child {
+    margin-left: 1rem;
+  }
+  
+  .divider-custom .divider-custom-line {
+    width: 100%;
+    max-width: 17rem;
+    height: .55rem;
+    background-color: #0277bd;
+    border-radius: 2rem;
+    border-color: #0277bd !important;
+  }
+  
+  .divider-custom .divider-custom-icon {
+    color: #0277bd !important;
+  }
+
+  .mat-icon-cabecalho{
+   transform: scale(1.5);
+  }
+
+
+  
   
