@@ -120,6 +120,12 @@
     margin-left: auto;
     padding: 0 15px 25px 15px;
   }
+
+  .quemajudamos h2 {
+    color: #0277bd;
+    font-size: 30px;
+    font-weight: bold;
+  }
   
 
   .footer {
