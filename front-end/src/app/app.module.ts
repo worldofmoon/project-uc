@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule,  MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './home/index.component';
+import { ModalFormComponent } from './home/modal-form.component'
 
 @NgModule({
   /*AQUI DECLARAMOS TODOS OS COMPONENTES QUE VAMOS USAR*/

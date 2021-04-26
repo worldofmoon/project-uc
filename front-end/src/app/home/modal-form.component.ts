@@ -3,8 +3,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'modal-form',
-  templateUrl: './modal-form.component.html',
-  styleUrls: ['./modal-form.component.css']
+  templateUrl: './modal-form.component.html'
 })
 export class ModalFormComponent {
   validatingForm: FormGroup;

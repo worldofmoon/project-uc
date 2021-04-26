@@ -14,11 +14,12 @@
         </a>
 
         <!--AQUI É PRA SER O MODAL DE CADASTRO E LOGIN-->
-        <button mat-button type="button" mdbBtn color="default" rounded="true" data-toggle="modal"
-          data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>
+
+        <button mat-button>
           <mat-icon>account_box</mat-icon>
           Login
         </button>
+
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
@@ -55,9 +56,65 @@
         <p class="center">Nós acreditamos em um amanhã melhor</p>
       </section>
 
+      <!--Section como funciona-->
+      <section class="comofunciona">
+        <h2 class="center">COMO FUNCIONA</h2>
+        <div class="icon-func divider-custom divider-light">
+          <div class="divider-custom-line"></div>
+          <div class="divider-custom-icon">
+            <i class="fa fa-exclamation" aria-hidden="true">
+              <mat-icon class='mat-icon-cabecalho'>contact_support</mat-icon>
+            </i>
+
+          </div>
+          <div class="divider-custom-line"></div>
+        </div>
+        <div class="img-fluxo">
+          <img class="img-fluid" src="assets/images/Fluxo.png">
+        </div>
+      </section>
+      <!--Final Section como funciona-->
+
+      <section class="about">
+        <h2 class="center">SOBRE NÓS</h2>
+        <div class="icon-func divider-custom divider-light">
+          <div class="divider-custom-line"></div>
+          <div class="divider-custom-icon">
+            <i class="far fa-address-card" aria-hidden="true">
+              <mat-icon class='mat-icon-cabecalho'>feedback</mat-icon>
+            </i>
+          </div>
+          <div class="divider-custom-line"></div>
+        </div>
+        <div class="principal">
+          <p class="coluna">
+            <b>Quem somos?</b> Uma aplicação para doações de notebooks,
+            tablets, computadores que realiza parcerias com ONGs as quais
+            recondicionam o equipamento, se necessário, e encaminham para uma
+            pessoa/família que não possuem meios para adquiri-los
+          </p>
+          <p class="coluna">
+            <b>Nossa missão?</b> Promover a inclusão social e o desenvolvimento
+            de pessoas sem acesso à tecnologia, de uma maneira sustentável.
+          </p>
+
+          <p class="coluna">
+            <b>Nossa meta?</b> Nosso objetivo é até 2021, como ONG, é possuir
+            diversas parcerias, uma organização e estruturação interna
+            consolidada, ter um crescimento constante de famílias com acesso a
+            tecnologia e assim continuar promovendo a inclusão social.
+          </p>
+        </div>
+      </section>
+      <!--Final Section sobre nós-->
+
+      <!--rodapé da page-->
+      <!-- Footer -->
+      <footer>
+        <div class="footer">© 2020 Copyright: T.I Do Amanhã
+        </div>
+      </footer>
+      <!-- Footer -->
     </mat-sidenav-content>
   </mat-sidenav-container>
-
-  
 </div>
-
