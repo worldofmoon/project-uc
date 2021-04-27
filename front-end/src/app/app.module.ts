@@ -1,30 +1,53 @@
-import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule,  MatIconModule, MatListModule, MatSidenavModule, MatToolbarModule } from '@angular/material';
-import { AppComponent } from './app.component';
-import { IndexComponent } from './home/index.component';
-import { ModalFormComponent } from './home/modal-form.component'
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
+import { AppComponent } from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+import { HeaderComponent } from './header/header.component';
+import { ContentComponent } from './content/content.component';
+import { FooterComponent } from './footer/footer.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { CadastroClientesComponent } from './cadastro-clientes/cadastro-clientes.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HomeLogadaComponent } from './home-logada/home-logada.component';
+import { CadastroConcluidoComponent } from './cadastro-concluido/cadastro-concluido.component';
+import { AuthGuard } from 'auth.guard';
+import { AuthService } from 'auth.service';
+import { AcessoNegadoComponent } from './acesso-negado/acesso-negado.component';
+import { ModalNotCadastroComponent } from './modal-not-cadastro/modal-not-cadastro.component';
+import { SingletonRouterService } from 'src/services/singletonRouter.service';
+
+import {MatCardModule} from '@angular/material/card';
+import { LoginComponent } from './login/login.component';
+import { PainelInvestirComponent } from './painel-investir/painel-investir.component';
+import { InvestirComponent } from './investir/investir.component';
 @NgModule({
-  /*AQUI DECLARAMOS TODOS OS COMPONENTES QUE VAMOS USAR*/
   declarations: [
     AppComponent,
-    IndexComponent
+    HeaderComponent,
+    ContentComponent,
+    FooterComponent,
+    CadastroClientesComponent,
+    HomeLogadaComponent,
+    CadastroConcluidoComponent,
+    AcessoNegadoComponent,
+    ModalNotCadastroComponent,
+    LoginComponent,
+    PainelInvestirComponent,
+    InvestirComponent
   ],
-  /*AQUI FICAM APENAS OS MÓDULOS QUE USAMOS NOS COMPONENTES*/
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatIconModule,
-    MatListModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatButtonModule,
-    FlexLayoutModule
+    MatDialogModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    MatCardModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthGuard, AuthService, SingletonRouterService],
+  entryComponents: [ModalNotCadastroComponent],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule {}
+export class AppModule { }

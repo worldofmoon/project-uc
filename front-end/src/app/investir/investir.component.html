@@ -1,0 +1,16 @@
+<div *ngIf="investimentos !== undefined">
+  <div class="container">
+    <p>Aqui você visualiza seus investimentos, navega pelos resultados obtidos pelo seu título.</p>
+  </div>
+  <div class="box">
+    <h3>{{investimentos.modalidade}}</h3>
+    <p>{{investimentos.rentabilidade}}</p>
+    <p>{{investimentos.valorInteiro}}</p>
+    <p>{{investimentos.valorMinimo}}</p>
+    <p>{{investimentos.vencimento}}</p>
+  </div>
+</div>
+
+<div class="container" *ngIf="investimentos === undefined">
+  <p>Você ainda não possui investimentos. Começe a investir agora mesmo!</p>
+</div>

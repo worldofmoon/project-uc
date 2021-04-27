@@ -1,5 +1,5 @@
+<app-header *ngIf="isShow"></app-header>
 
-<div class="container mt-5 mb-5 ">
-  <app-index>
-  </app-index>
-</div>
+<router-outlet></router-outlet>
+
+<app-footer *ngIf="isShow"></app-footer>
