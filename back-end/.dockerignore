@@ -1,4 +1,4 @@
-nodemodules
+node_modules
 .editorconfig
 .env
 .git
@@ -7,4 +7,4 @@ nodemodules
 .eslintignore
 .eslintrc
 .gitignore
-tsconfig.json
+*.map.js
