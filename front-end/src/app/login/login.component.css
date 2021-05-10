@@ -20,16 +20,14 @@
     .form-check {
         margin-top: 30px;
     }
-    margin-top: 30px;
+   
 }
 
 .form-row.align-items-center {
     height: 266px;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
-.form-check {
-    position: relative;
-    display: block;
-    margin-top: 30px;
+.form-control{
+    margin-bottom: 5px;
 }
