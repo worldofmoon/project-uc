@@ -1,0 +1,10 @@
+nodemodules
+.editorconfig
+.env
+.git
+*Dockerfile*
+*docker-compose*
+.eslintignore
+.eslintrc
+.gitignore
+tsconfig.json
