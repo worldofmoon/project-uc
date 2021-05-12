@@ -1,6 +1,5 @@
 import { Router, Request, Response } from "express";
 import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
 import { User } from "../models/user";
 import { verifyAuth, validateRequestBody, verifyAdmin } from "../middlewares/user";
 import { QueryFailedError } from "typeorm";
@@ -20,7 +19,7 @@ router.post('/authenticate', async (req: Request, res: Response): Promise<void> 
   }
 
   const user = await User.findOne({email});
-  const match = await bcrypt.compare(password, user.password);
+  const match = await user.comparePassowrd(password);
   if (!match) {
     res.status(403).json({error: 'Wrong password'});
     return;
@@ -56,8 +55,9 @@ router.post('/', validateRequestBody, async (req: Request, res: Response): Promi
   user.firstName = firstName;
   user.lastName = lastName;
   user.email = email;
-  user.password = await bcrypt.hash(password, 10);
+  user.password = password;
   user.isAdmin = false;
+  user.hashPassword();
   try {
     await user.save();
   } catch(e) {
@@ -99,10 +99,8 @@ router.patch('/password', async (req: Request, res: Response): Promise<void> => 
   const password: string = req.body.password;
   const userLogged: User = req['user'];
 
-  const hashedPassord = await bcrypt.hash(password, 10);
-  await userLogged.updatePassword(hashedPassord);
-
-  res.status(204);
+  await userLogged.updatePassword(password);
+  res.status(204).send();
 })
 
 router.get('/', verifyAdmin, async (req: Request, res: Response): Promise<void> => {
