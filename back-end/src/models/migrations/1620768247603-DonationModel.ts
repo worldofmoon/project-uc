@@ -86,6 +86,7 @@ export class DonationModel1620768247603 implements MigrationInterface {
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     const table = await queryRunner.getTable('donations');
+    await queryRunner.dropIndices(table, table.indices);
     await queryRunner.dropForeignKeys(table, table.foreignKeys);
     await queryRunner.dropTable(table, true);
   }
