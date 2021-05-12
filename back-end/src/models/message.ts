@@ -4,6 +4,7 @@ import { User } from "./user";
 
 @Entity({
   name: 'messages',
+  orderBy: {createdAt: 'DESC'},
 })
 export class Message extends BaseEntity {
   @PrimaryGeneratedColumn()
