@@ -1,8 +1,12 @@
 import { Router } from "express";
-import userRouter from "./controllers/user";
+import userController from "./controllers/user";
+import donationController from "./controllers/donation"
+import { verifyAuth } from "./middlewares/user";
+
 
 const router = Router();
 
-router.use('/users', userRouter);
+router.use('/users', userController);
+router.use('/donations', verifyAuth, donationController);
 
 export default router;

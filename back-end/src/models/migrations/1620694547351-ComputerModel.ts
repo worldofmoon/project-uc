@@ -9,6 +9,8 @@ export class ComputerModel1620694547351 implements MigrationInterface {
           name: 'id',
           type: 'int',
           isPrimary: true,
+          isGenerated: true,
+          generationStrategy: 'increment',
         },
         {
           name: 'title',

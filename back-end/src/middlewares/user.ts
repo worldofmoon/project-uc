@@ -5,7 +5,7 @@ import { User } from "../models/user";
 export const verifyAuth = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
   const auth = req.headers.authorization;
   if (!auth) {
-    res.status(403).json({error: 'Authorization header not provided'});
+    res.status(401).json({error: 'Authorization header not provided'});
     return;
   } else if (!auth.startsWith('Bearer ')) {
     res.status(403).json({error: 'Malformed authorization header'});

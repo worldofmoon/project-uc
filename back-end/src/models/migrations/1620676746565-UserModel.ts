@@ -9,6 +9,8 @@ export class UserModel1620676746565 implements MigrationInterface {
           name: 'id',
           type: 'int',
           isPrimary: true,
+          isGenerated: true,
+          generationStrategy: 'increment',
         },
         {
           name: 'firstName',

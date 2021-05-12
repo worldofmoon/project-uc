@@ -64,6 +64,7 @@ router.post('/', validateRequestBody, async (req: Request, res: Response): Promi
     if (e instanceof QueryFailedError && e.message.startsWith('Duplicate entry')) {
       res.status(409).json({error: 'email already registered'});
     } else {
+      console.log(e);
       res.status(500).json({error: 'Internal error'});
     }
     return;
