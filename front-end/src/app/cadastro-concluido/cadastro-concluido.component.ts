@@ -15,7 +15,7 @@ export class CadastroConcluidoComponent implements OnInit {
   }
   navegarParaLogin() {
     setTimeout(() => {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/home']);
     }, 3000);
   }
 }

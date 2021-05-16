@@ -4,3 +4,9 @@
     z-index: -9999;
     top: -60px;
 }
+
+.btn {
+    background-color: #4682B4;
+    font-weight: bold;
+    color: #ffff;
+}

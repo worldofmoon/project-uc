@@ -3,11 +3,13 @@ import { FormBuilder } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-cadastro-clientes',
   templateUrl: './cadastro-clientes.component.html',
   styleUrls: ['./cadastro-clientes.component.css']
 })
+
 export class CadastroClientesComponent implements OnInit {
   formCadastro;
   valoresForm: Object;
@@ -65,3 +67,36 @@ export class CadastroClientesComponent implements OnInit {
   }
 
 }
+
+
+
+/*import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
+
+import { ClienteService } from './cliente.service';
+
+@Component({
+  selector: 'app-cadastro-clientes',
+  templateUrl: './cadastro-clientes.component.html',
+  styleUrls: ['./cadastro-clientes.component.css']
+})
+
+export class CadastroClientesComponent {
+  constructor(public clienteService: ClienteService) {}
+  
+  onAdicionarCliente(form: NgForm) {
+    if(form.invalid) {
+      return;
+    }
+    this.clienteService.adicionarCliente(
+      form.value.nome, 
+      form.value.nasc,
+      form.value.fone,
+      form.value.email,
+      form.value.endereco,
+      form.value.senha
+    );
+    form.resetForm();
+  }
+}*/

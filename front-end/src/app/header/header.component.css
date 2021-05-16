@@ -30,20 +30,28 @@
     
 }
 
+
+
 .position-login {
     position: relative;
     top: -152px;
 }
 
+.right {
+    float: right;
+}
+
 .ancora-navbar{
     color: #ffff;
+    text-decoration: none;
 }
 
 .logo{
-    position: relative;
+    /*position: relative;*/
+    float: left;
     text-align: center;
-    max-width:300px;
-    max-height:150px;
+    max-width:240px;
+    max-height:90px;
     width: auto;
     height: auto;
     margin-right: 30px;

@@ -3,11 +3,11 @@ import { UserService } from '../user.service';
 import { ModalidadesService } from '../modalidades.service';
 
 @Component({
-  selector: 'app-investir',
-  templateUrl: './investir.component.html',
-  styleUrls: ['./investir.component.css']
+  selector: 'app-quem-somos',
+  templateUrl: './quem-somos.component.html',
+  styleUrls: ['./quem-somos.component.css']
 })
-export class InvestirComponent implements OnInit {
+export class QuemSomosComponent implements OnInit {
   investimentos;
   constructor(private userService: UserService,
     private modalidadeService: ModalidadesService) { }

@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row box-cadastro">
     <div class="col-12">
@@ -26,3 +27,63 @@
     </div>
   </div>
 </div>
+-->
+
+<!-- <div class="container">
+
+      <h3 class="text-center">Você está a um passo de ajudar alguém</h3>
+
+      <mat-card>
+        <form (ngSubmit)='cadastro()'  (submit)="onAdicionarCliente(clienteForm)" #clienteForm="ngForm">
+          <div class="row">
+          <mat-form-field class="col-sm">
+            <mat-label>Nome Completo:</mat-label>
+            <input required minlength="4" type="text" matInput name="nome" ngModel #nome="ngModel">
+            <mat-error *ngIf="nome.invalid">Nome deve ter pelo menos 4 caractéres!</mat-error>
+          </mat-form-field>
+          </div>
+  
+          <div class="row">
+            <mat-form-field class="col-sm">
+              <mat-label>Data Nasc.:</mat-label>
+              <input required matInput name="nasc" ngModel #nasc="ngModel" >
+              <mat-error *ngIf="nasc.invalid">O campo não pode ser nulo.</mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-sm">
+              <mat-label>E-mail:</mat-label>
+              <input required type="email" matInput name="email" ngModel email="true" #email="ngModel" >
+              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field class="col-sm">
+              <mat-label>Telefone:</mat-label>
+              <input required type="phone" matInput name="fone" ngModel #telefone="ngModel">
+              <mat-error *ngIf="fone.invalid">O campo não pode ser nulo.</mat-error>
+            </mat-form-field>
+          </div>
+  
+          <div class="row">
+            <mat-form-field>
+              <mat-label>Endereço:</mat-label>
+              <input required type="text" matInput name="endereco" ngModel #endereco="ngModel">
+              <mat-error *ngIf="endereco.invalid">O campo não pode ser nulo.</mat-error>
+            </mat-form-field>
+          </div>
+  
+          <div class="row">
+            <mat-form-field class="col-sm">
+              <mat-label>Senha:</mat-label>
+              <input required type="password" matInput name="senha" ngModel #senha="ngModel">
+              <mat-error *ngIf="senha.invalid">O campo não pode ser nulo.</mat-error>
+            </mat-form-field>
+            <mat-form-field class="col-sm">
+              <mat-label>Confirme sua Senha:</mat-label>
+              <input required type="password" matInput name="senha" ngModel #senha="ngModel">
+              <mat-error *ngIf="senha.invalid">O campo não pode ser nulo.</mat-error>
+            </mat-form-field>
+          </div>
+          <button type="submit" name="cadastro" class="mat-focus-indicator mat-raised-button mat-button-base mat-primary btn-cadastro mt-3"   mat-raised-button>Cadastrar</button>
+        </form>
+      </mat-card>
+
+</div> -->

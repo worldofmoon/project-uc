@@ -9,15 +9,15 @@
 
 .box-tile {
     width: 40vw;
-    height: 100px;
+    height: 70px;
     position: absolute;
-	top: 30%;
+	top: 20%;
     left: 10%;
-    padding: 10px;
+    padding: 5px;
 }
 
-.wrapper-content h1 {
-	font-size: 60pt;
+.wrapper-content h6 {
+	font-size: 35pt;
 	color: #fff;
 	text-shadow: 2px 2px #333;
 	font-family: 'Crete Round', serif !important;
@@ -25,12 +25,12 @@
 }
 
 .tag {
-	font-size: 90pt;
+	font-size: 35pt;
     color: #F6821F;
     font-weight: bold;
     position: absolute;
-    left: -58px;
-	bottom: -39px;
+    left: -5px;
+    top: -4px;
 	text-shadow: 2px 2px #333;
 }
 
@@ -50,9 +50,9 @@
 .btn-home-cadastro-clientes {
     position: absolute !important;
     top: 390px;
-    padding: 20px;
-    font-size: 25px;
-    width: 40%;
+    padding: 12px;
+    font-size: 22px;
+    width: 35%;
     background: #191970;
     color: #fff;
     border: 2px solid;

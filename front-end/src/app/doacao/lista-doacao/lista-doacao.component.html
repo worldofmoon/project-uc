@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row box-cadastro">
+    <div class="col-12">
+
+      <mat-accordion *ngIf="doacoes.length > 0">
+        <h6>Suas Doações:</h6>
+        <mat-expansion-panel *ngFor="let doacao of doacoes">
+          <mat-expansion-panel-header> Item Doado: {{ doacao.item }}</mat-expansion-panel-header>
+          <p>Data Retirada: {{ doacao.dataDoacao | date: 'dd/MM/yyyy' }}</p>
+          <p>Descrição: {{ doacao.descricao }}</p>
+          <mat-action-row>
+            <button mat-button color="primary">Editar</button>
+            <button mat-button color="warn">Remover</button>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <p class="mat-body-1 text-center" *ngIf="doacoes.length <= 0">
+        Nenhuma doação cadastrada.
+      </p>
+    </div>
+  </div>
+</div>

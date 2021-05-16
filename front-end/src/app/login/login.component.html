@@ -2,17 +2,16 @@
   <div class="form-row align-items-center">
     <div class="col-auto my-1 teste">
       <div class="form-check">
-        <label class="form-check-label">
+        <label class="form-check-label espacamento">
           <b>Acesse</b> sua conta
         </label>
-        <input type="email" class="form-control" formControlName="cpf" placeholder="Digite seu email"
+        <input type="text" class="form-control-sm espacamento" formControlName="cpf" placeholder="Digite seu CPF"
           (keypress)="onlynumber($event)" maxlength=11>
-        <input type="password" class="form-control" formControlName="cpf" placeholder="Digite sua senha"
+        <input type="password" class="form-control-sm espacamento" formControlName="cpf" placeholder="Digite sua senha"
           (keypress)="onlynumber($event)" maxlength=11>
+        
+          <button type="submit" class="btn-sm btn-primary acessar-conta espacamento" (click)="login()">Acessar</button>
       </div>
-    </div>
-    <div class="col-auto my-1">
-      <button type="submit" class="btn btn-primary acessar-conta" (click)="login()">Acessar</button>
     </div>
   </div>
 </form>
