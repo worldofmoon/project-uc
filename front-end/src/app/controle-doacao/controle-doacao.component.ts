@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
+import * as Typed from 'typed.js';
 
 /**
  * @title Table with filtering
@@ -42,3 +43,6 @@ const ELEMENT_DATA: Element[] = [
   {cod: 9, doador: 'Clara', status: 'Declinado', data_ret: '01/01/2021'},
   {cod: 10, doador: 'Fabiana', status: 'Disponível', data_ret: '01/01/2021'},
 ];
+
+
+

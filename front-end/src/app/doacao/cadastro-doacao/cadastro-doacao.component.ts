@@ -39,3 +39,12 @@ export class CadastroDoacaoComponent {
   }
 
 }
+export class ContentComponent implements OnInit {
+
+  constructor(private router: Router) { }
+  gotoChat() {
+    this.router.navigate(['chat-doador']);
+   }ter.navigate(['chat-ong']);
+   }
+}
+

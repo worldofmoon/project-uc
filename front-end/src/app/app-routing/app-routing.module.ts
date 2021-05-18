@@ -13,6 +13,8 @@ import { QuemSomosComponent } from '../quem-somos/quem-somos.component';
 import { CadastroDoacaoComponent } from '../doacao/cadastro-doacao/cadastro-doacao.component';
 import { ListaDoacaoComponent } from '../doacao/lista-doacao/lista-doacao.component';
 import { ControleDoacaoComponent } from '../controle-doacao/controle-doacao.component';
+import { ChatDoadorComponent } from './../chat-doador/chat-doador.component';
+import {ChatOngComponent} from './../chat-ong/chat-ong.component';
 
 const routes: Routes = [
   { path: 'home', component: ContentComponent },
@@ -26,6 +28,8 @@ const routes: Routes = [
   { path: 'cadastro-doacao', component: CadastroDoacaoComponent},
   { path: 'cadastro-doacao', component: ListaDoacaoComponent},
   { path: 'controle-doacao', component: ControleDoacaoComponent},
+   { path: 'chat-doador', component: ChatDoadorComponent },
+  { path: 'chat-ong', component: ChatOngComponent },
 ];
 
 @NgModule({

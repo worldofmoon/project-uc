@@ -11,3 +11,15 @@ mat-form-field, input {
     font-weight: bold;
     color: #ffff;
 }
+
+.btn-chat {
+    position: absolute !important;
+    top: 390px;
+    padding: 10px;
+    font-size: 25px;
+    width: 10%;
+    background: #191970;
+    color: #fff;
+    border: 2px solid;
+    margin-left: 80%;
+}

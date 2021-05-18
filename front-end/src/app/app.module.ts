@@ -34,6 +34,9 @@ import { ListaDoacaoComponent } from './doacao/lista-doacao/lista-doacao.compone
 import { DoacaoService } from './doacao/doacao.service';
 import { ControleDoacaoComponent } from './controle-doacao/controle-doacao.component';
 import { ClienteService } from './cadastro-clientes/cliente.service';
+import { ChatDoadorComponent } from './chat-doador/chat-doador.component';
+import { ChatOngComponent } from './chat-ong/chat-ong.component';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +54,9 @@ import { ClienteService } from './cadastro-clientes/cliente.service';
     QuemSomosComponent,
     CadastroDoacaoComponent,
     ListaDoacaoComponent,
-    ControleDoacaoComponent
+    ControleDoacaoComponent,
+    ChatDoadorComponent,
+    ChatOngComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +74,7 @@ import { ClienteService } from './cadastro-clientes/cliente.service';
     MatTableModule,
    // NgxMaskModule.forRoot({
     //  dropSpecialCharacters: true // false ao salvar, a mascara sera mantida, true salva sem
-  //  }),    
+  //  }),
   ],
 
   providers: [AuthGuard, AuthService, SingletonRouterService, DoacaoService, ClienteService],
