@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import * as Typed from 'typed.js';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 /**
  * @title Table with filtering
@@ -12,7 +14,9 @@ import * as Typed from 'typed.js';
   styleUrls: ['./controle-doacao.component.css']
 })
 
-export class ControleDoacaoComponent {
+export class ControleDoacaoComponent implements OnInit  {
+  constructor(private router: Router) {}
+
   displayedColumns = ['cod', 'doador', 'status', 'data_ret'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
 
@@ -21,6 +25,11 @@ export class ControleDoacaoComponent {
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
   }
+  gotoChatOng() {
+    this.router.navigate(['chat-ong']);
+  }
+
+  ngOnInit() {}
 
 }
 
@@ -43,6 +52,3 @@ const ELEMENT_DATA: Element[] = [
   {cod: 9, doador: 'Clara', status: 'Declinado', data_ret: '01/01/2021'},
   {cod: 10, doador: 'Fabiana', status: 'Disponível', data_ret: '01/01/2021'},
 ];
-
-
-
