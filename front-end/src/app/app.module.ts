@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http'; // add this line
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -72,6 +73,7 @@ import { ChatOngComponent } from './chat-ong/chat-ong.component';
     MatToolbarModule,
     MatExpansionModule,
     MatTableModule,
+    HttpClientModule,
    // NgxMaskModule.forRoot({
     //  dropSpecialCharacters: true // false ao salvar, a mascara sera mantida, true salva sem
   //  }),
