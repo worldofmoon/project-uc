@@ -8,5 +8,5 @@ WORKDIR /opt/app
 COPY . .
 RUN make build
 
-ENTRYPOINT [ "./entrypoint.sh" ]
+ENTRYPOINT ["./entrypoint.sh" ]
 CMD ["yarn", "start"]
