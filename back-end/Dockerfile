@@ -5,8 +5,13 @@ RUN apk add make
 
 WORKDIR /opt/app
 
+RUN cp package.json .
+RUN yarn install
+
 COPY . .
 RUN make build
+
+RUN mv public dist/public
 
 ENTRYPOINT ["./entrypoint.sh" ]
 CMD ["yarn", "start"]

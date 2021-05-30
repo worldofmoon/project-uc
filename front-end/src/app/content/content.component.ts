@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as Typed from 'typed.js';
+import Typed from 'typed.js';
 import { Router } from '@angular/router';
 
 @Component({
