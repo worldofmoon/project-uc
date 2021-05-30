@@ -1,5 +1,6 @@
 export interface Doacao {
+    id: string;
     item: string;
-    dataDoacao: Date;
+    dataDoacao: string;
     descricao: string;
     }

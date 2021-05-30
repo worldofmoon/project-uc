@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { MatDialog } from '@angular/material';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./chat-ong.component.css']
 })
 export class ChatOngComponent implements OnInit {
-  formDoador;
+  formOng: FormGroup;
   valoresForm: Object;
   conversao;
   constructor(

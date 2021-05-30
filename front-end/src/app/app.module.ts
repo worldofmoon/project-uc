@@ -28,7 +28,6 @@ import { MatTableModule } from '@angular/material/table';
 //import { NgxMaskModule } from 'ngx-mask';
 
 import { LoginComponent } from './login/login.component';
-import { PainelInvestirComponent } from './painel-investir/painel-investir.component';
 import { QuemSomosComponent } from './quem-somos/quem-somos.component';
 import { CadastroDoacaoComponent } from './doacao/cadastro-doacao/cadastro-doacao.component';
 import { ListaDoacaoComponent } from './doacao/lista-doacao/lista-doacao.component';
@@ -51,7 +50,6 @@ import { ChatOngComponent } from './chat-ong/chat-ong.component';
     AcessoNegadoComponent,
     ModalNotCadastroComponent,
     LoginComponent,
-    PainelInvestirComponent,
     QuemSomosComponent,
     CadastroDoacaoComponent,
     ListaDoacaoComponent,

@@ -1,89 +1,89 @@
-
 <div class="container">
-  <div class="row box-cadastro">
-    <div class="col-12">
-      <h3 class="text-center">Você está a um passo de ajudar alguém</h3>
-      <form class="mt-5" (ngSubmit)='cadastro()' [formGroup]='formCadastro'>
-        <div class="form-group">
-          <input type="text" class="form-control cadastro" placeholder="Nome completo" formControlName='nome'>
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control cadastro" placeholder="Senha" formControlName='cpf'>
-        </div>
-        <div class="form-group">
-          <input type="password" class="form-control cadastro" placeholder="Confirme sua senha" formControlName='cpf'>
-        </div>
-        <div class="form-group">
-          <input type="email" class="form-control cadastro" placeholder="E-mail" formControlName='email'>
-        </div>
-        <div class="form-group">
-          <input type="tel" class="form-control cadastro" placeholder="Telefone" formControlName='telefone'>
-        </div>
-        <div class="form-group">
-          <input type="text" class="form-control cadastro" placeholder="Endereço" formControlName='endereco'>
-        </div>
-        <button type="submit" class="btn btn-cadastro btn-lg">Cadastrar</button>
-      </form>
-    </div>
+  <div class="row m-2">
+    <h3 class="text-center">Você está a um passo de ajudar alguém</h3>
   </div>
-</div>
--->
+  <mat-card>
+    <form [formGroup]="form" (submit)="onSalvarCliente()">
+      <mat-form-field>
+        <input type="text"
+        matInput
+        placeholder="Nome"
+        formControlName="nome"
+        name="nome"/>
+        <mat-error *ngIf="form.get('nome').invalid">Digite um nome válido</mat-error>
+      </mat-form-field>
 
-<!-- <div class="container">
-
-      <h3 class="text-center">Você está a um passo de ajudar alguém</h3>
-
-      <mat-card>
-        <form (ngSubmit)='cadastro()'  (submit)="onAdicionarCliente(clienteForm)" #clienteForm="ngForm">
-          <div class="row">
-          <mat-form-field class="col-sm">
-            <mat-label>Nome Completo:</mat-label>
-            <input required minlength="4" type="text" matInput name="nome" ngModel #nome="ngModel">
-            <mat-error *ngIf="nome.invalid">Nome deve ter pelo menos 4 caractéres!</mat-error>
+      <mat-form-field>
+        <input type="text"
+        matInput
+        placeholder="Enderço"
+        formControlName="endereco"
+        name="endereco"/>
+        <mat-error *ngIf="form.get('endereco').invalid">Digite um endereço válido</mat-error>
+      </mat-form-field>
+      
+      <div class="row">
+        <div class="col-sm">
+          <mat-form-field>
+            <input type="text"
+            matInput
+            placeholder="Telefone"
+            formControlName="fone"
+            name="fone"/>
+            <mat-error *ngIf="form.get('fone').invalid">Digite um telefone válido</mat-error>
           </mat-form-field>
-          </div>
-  
-          <div class="row">
-            <mat-form-field class="col-sm">
-              <mat-label>Data Nasc.:</mat-label>
-              <input required matInput name="nasc" ngModel #nasc="ngModel" >
-              <mat-error *ngIf="nasc.invalid">O campo não pode ser nulo.</mat-error>
-            </mat-form-field>
-            <mat-form-field class="col-sm">
-              <mat-label>E-mail:</mat-label>
-              <input required type="email" matInput name="email" ngModel email="true" #email="ngModel" >
-              <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-            </mat-form-field>
-            
-            <mat-form-field class="col-sm">
-              <mat-label>Telefone:</mat-label>
-              <input required type="phone" matInput name="fone" ngModel #telefone="ngModel">
-              <mat-error *ngIf="fone.invalid">O campo não pode ser nulo.</mat-error>
-            </mat-form-field>
-          </div>
-  
-          <div class="row">
-            <mat-form-field>
-              <mat-label>Endereço:</mat-label>
-              <input required type="text" matInput name="endereco" ngModel #endereco="ngModel">
-              <mat-error *ngIf="endereco.invalid">O campo não pode ser nulo.</mat-error>
-            </mat-form-field>
-          </div>
-  
-          <div class="row">
-            <mat-form-field class="col-sm">
-              <mat-label>Senha:</mat-label>
-              <input required type="password" matInput name="senha" ngModel #senha="ngModel">
-              <mat-error *ngIf="senha.invalid">O campo não pode ser nulo.</mat-error>
-            </mat-form-field>
-            <mat-form-field class="col-sm">
-              <mat-label>Confirme sua Senha:</mat-label>
-              <input required type="password" matInput name="senha" ngModel #senha="ngModel">
-              <mat-error *ngIf="senha.invalid">O campo não pode ser nulo.</mat-error>
-            </mat-form-field>
-          </div>
-          <button type="submit" name="cadastro" class="mat-focus-indicator mat-raised-button mat-button-base mat-primary btn-cadastro mt-3"   mat-raised-button>Cadastrar</button>
-        </form>
-      </mat-card>
+        </div>
 
-</div> -->
+        <div class="col-sm">
+          <mat-form-field>
+            <input type="text" mask="DD/MM/YYYY"
+            matInput
+            placeholder="Data Nascimento"
+            formControlName="nasc"
+            name="nasc"/>
+            <mat-error *ngIf="form.get('nasc').invalid">Digite um telefone válido</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <mat-form-field>
+        <input type="text"
+        matInput
+        placeholder="E-mail"
+        formControlName="email"
+        name="email"/>
+        <mat-error *ngIf="form.get('email').invalid">Digite um e-mail válido</mat-error>
+      </mat-form-field>
+
+      <div class="row">
+        <div class="col-sm">
+          <mat-form-field>
+            <input type="password"
+            matInput
+            placeholder="Senha"
+            formControlName="senha"
+            name="senha"/>
+            <mat-error *ngIf="form.get('senha').invalid">Digite um nome válido</mat-error>
+          </mat-form-field>
+        </div>
+        
+        <div class="col-sm">
+          <mat-form-field>
+            <input type="password"
+            matInput
+            placeholder="Confirmar Senha"
+            formControlName="senha"
+            name="senha"/>
+            <mat-error *ngIf="form.get('senha').invalid">Digite um nome válido</mat-error>
+          </mat-form-field>
+        </div>
+        
+      </div>
+
+    <button mat-raised-button="mat-raised-button" class="btn-cadastro">
+      Salvar
+    </button>
+    </form>
+  </mat-card>
+
+</div>

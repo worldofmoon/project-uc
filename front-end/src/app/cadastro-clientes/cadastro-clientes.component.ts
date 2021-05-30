@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { debounceTime } from 'rxjs/operators';
 import { MatDialog } from '@angular/material';
-import { Router } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Cliente } from './cliente.model';
+import { ClienteService } from './cliente.service';
+import { mainModule } from 'process';
 
 @Component({
   selector: 'app-cadastro-clientes',
@@ -11,6 +14,61 @@ import { Router } from '@angular/router';
 })
 
 export class CadastroClientesComponent implements OnInit {
+  private modo: string = "criar";
+  private idCliente: string;
+  public cliente: Cliente;
+  form: FormGroup;
+  
+  ngOnInit() {
+    this.form = new FormGroup ({
+      nome: new FormControl (null, {
+        validators: [Validators.required, Validators.minLength(3)]
+      }),
+      endereco: new FormControl (null, {
+        validators: [Validators.required]
+      }),
+      fone: new FormControl (null, {
+        validators: [Validators.required]
+      }),
+      nasc: new FormControl (null, {
+        validators: [Validators.required]
+      }),
+      email: new FormControl (null, {
+        validators: [Validators.required, Validators.email]
+      }),
+      senha: new FormControl (null, {
+        validators: [Validators.required]
+      })
+    })
+    /*this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      this.modo = "criar";
+      this.idCliente = null;
+    });*/
+  }
+
+  constructor(public clienteService: ClienteService, public route: ActivatedRoute, private router: Router) {}
+
+  onSalvarCliente() {
+    if (this.form.invalid) {
+      return;
+    }
+    if (this.modo === "criar") {
+      this.clienteService.adicionarCliente(
+        this.form.value.nome,
+        this.form.value.nasc,
+        this.form.value.endereco,
+        this.form.value.fone,
+        this.form.value.email,
+        this.form.value.senha
+      );
+    }
+    this.form.reset();
+    this.router.navigate(['cadastro-concluido']);
+  }
+
+}
+  
+  /*
   formCadastro;
   valoresForm: Object;
   conversao;
@@ -66,37 +124,4 @@ export class CadastroClientesComponent implements OnInit {
     }, 200);
   }
 
-}
-
-
-
-/*import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
-
-import { ClienteService } from './cliente.service';
-
-@Component({
-  selector: 'app-cadastro-clientes',
-  templateUrl: './cadastro-clientes.component.html',
-  styleUrls: ['./cadastro-clientes.component.css']
-})
-
-export class CadastroClientesComponent {
-  constructor(public clienteService: ClienteService) {}
-  
-  onAdicionarCliente(form: NgForm) {
-    if(form.invalid) {
-      return;
-    }
-    this.clienteService.adicionarCliente(
-      form.value.nome, 
-      form.value.nasc,
-      form.value.fone,
-      form.value.email,
-      form.value.endereco,
-      form.value.senha
-    );
-    form.resetForm();
-  }
 }*/

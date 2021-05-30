@@ -16,26 +16,26 @@
 
   <div class="row">
     <mat-card [hidden]="isDisplayed" class="mb-3"> 
-      <form (submit)="onAdicionarDoacao(doacaoForm)" #doacaoForm="ngForm">
+      <form [formGroup]="form" (submit)="onAdicionarDoacao()">
   
         <div class="row">
           <mat-form-field class="col-sm">
             <mat-label>Item Doado:</mat-label>
-            <input required type="text" matInput name="item" ngModel #item="ngModel" />
-            <mat-error *ngIf="item.invalid">O campo não pode ser nulo.</mat-error>
+            <input required type="text" matInput name="item" formControlName="item"/>
+            <mat-error *ngIf="form.get('item')">O campo não pode ser nulo.</mat-error>
           </mat-form-field>
           <mat-form-field class="col-sm">
             <mat-label>Data de Retirada:</mat-label>
-            <input required type="date" matInput name="data" ngModel #dataDoacao="ngModel" />
-            <mat-error *ngIf="dataDoacao.invalid">O campo não pode ser nulo.</mat-error>
+            <input required type="date" matInput name="dataDocao" formControlName="dataDoacao" />
+            <mat-error *ngIf="form.get('dataDoacao')">O campo não pode ser nulo.</mat-error>
           </mat-form-field>
         </div>
   
         <div class="row">
           <mat-form-field class="col-sm">
             <mat-label>Descrição:</mat-label>
-            <input required type="text" matInput name="descricao" ngModel #descricao="ngModel" />
-            <mat-error *ngIf="descricao.invalid">O campo não pode ser nulo.</mat-error>
+            <input required type="text" matInput name="descricao" formControlName="descricao" />
+            <mat-error *ngIf="form.get('descricao')">O campo não pode ser nulo.</mat-error>
           </mat-form-field>
         </div>
     
@@ -52,7 +52,8 @@
     <app-lista-doacao ></app-lista-doacao>
   </div>
 
-  
+  <div class="row">
+    <button class="btn btn-chat" (click)="gotoChat()">Chat</button>
+  </div>
   
 </div>
-<button class="btn btn-chat" (click)="gotoChat()">Chat</button>

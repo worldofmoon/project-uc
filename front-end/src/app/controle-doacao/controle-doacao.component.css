@@ -25,8 +25,7 @@ mat-header-cell {
 }
 
 .btn-chat-ong {
-   position: absolute !important;
-    top: 890px;
+   position: relative !important;
     padding: 10px;
     font-size: 25px;
     width: 10%;

@@ -9,8 +9,8 @@
           <p>Data Retirada: {{ doacao.dataDoacao | date: 'dd/MM/yyyy' }}</p>
           <p>Descrição: {{ doacao.descricao }}</p>
           <mat-action-row>
-            <button mat-button color="primary">Editar</button>
-            <button mat-button color="warn">Remover</button>
+            <a mat-button color="primary" [routerLink]="['/editar', doacao.id]">Editar</a>
+            <button mat-button color="warn" (click)="onDelete(doacao.id)">Remover</button>
           </mat-action-row>
         </mat-expansion-panel>
       </mat-accordion>
