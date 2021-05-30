@@ -5,7 +5,7 @@ RUN apk add make
 
 WORKDIR /opt/app
 
-RUN cp package.json .
+COPY package.json .
 RUN yarn install
 
 COPY . .
