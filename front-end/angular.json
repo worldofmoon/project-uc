@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "traning-bank": {
+    "doa-tech": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/traning-bank",
+            "outputPath": "dist/doa-tech",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -51,18 +51,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "traning-bank:build"
+            "browserTarget": "doa-tech:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "traning-bank:build:production"
+              "browserTarget": "doa-tech:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "traning-bank:build"
+            "browserTarget": "doa-tech:build"
           }
         },
         "test": {
@@ -96,7 +96,7 @@
         }
       }
     },
-    "traning-bank-e2e": {
+    "doa-tech-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -104,11 +104,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "traning-bank:serve"
+            "devServerTarget": "doa-tech:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "traning-bank:serve:production"
+              "devServerTarget": "doa-tech:serve:production"
             }
           }
         },
@@ -124,7 +124,7 @@
       }
     }
   },
-  "defaultProject": "traning-bank",
+  "defaultProject": "doa-tech",
   "cli": {
     "analytics": false
   }

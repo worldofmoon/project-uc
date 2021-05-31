@@ -16,7 +16,7 @@ else
     npm build
 fi
 
-mv dist/traning-bank $CURRDIR/out/public
+mv dist/doa-tech $CURRDIR/out/public
 
 cd $CURRDIR/out
 

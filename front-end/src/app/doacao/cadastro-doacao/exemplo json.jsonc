@@ -18,9 +18,27 @@
     "status":"PENDING_APPROVAL",
     "collectionDate":"2021-01-01",
     "address":"2021-01-01"
-},
+}
+
 {
     "item": "string",
     "dataDoacao": "2020-01-01",
     "descricao": "string"
+}
+// CRIAR DOADOR
+{
+    "firstName": "Teste",
+    "lastName": "doador",
+    "email": "doador@teste.com",
+    "password": "doador123",
+    "isAdmin": false //FALSE POIS TRUE É APENAS PARA ONG
+}
+
+// CRIAR ONG
+{
+    "firstName": "Ong",
+    "lastName": "do amanha",
+    "email": "ong@teste.com",
+    "password": "ong12345",
+    "isAdmin": true
 }

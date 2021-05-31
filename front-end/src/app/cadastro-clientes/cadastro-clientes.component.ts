@@ -24,26 +24,19 @@ export class CadastroClientesComponent implements OnInit {
       nome: new FormControl (null, {
         validators: [Validators.required, Validators.minLength(3)]
       }),
-      endereco: new FormControl (null, {
-        validators: [Validators.required]
-      }),
-      fone: new FormControl (null, {
-        validators: [Validators.required]
-      }),
-      nasc: new FormControl (null, {
-        validators: [Validators.required]
+      sobrenome: new FormControl (null, {
+        validators: [Validators.required, Validators.minLength(3)]
       }),
       email: new FormControl (null, {
         validators: [Validators.required, Validators.email]
       }),
       senha: new FormControl (null, {
+        validators: [Validators.required, Validators.minLength(8)]
+      }),
+      senhaConfirm: new FormControl (null, {
         validators: [Validators.required]
       })
     })
-    /*this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      this.modo = "criar";
-      this.idCliente = null;
-    });*/
   }
 
   constructor(public clienteService: ClienteService, public route: ActivatedRoute, private router: Router) {}
@@ -55,9 +48,7 @@ export class CadastroClientesComponent implements OnInit {
     if (this.modo === "criar") {
       this.clienteService.adicionarCliente(
         this.form.value.nome,
-        this.form.value.nasc,
-        this.form.value.endereco,
-        this.form.value.fone,
+        this.form.value.sobrenome,
         this.form.value.email,
         this.form.value.senha
       );
@@ -67,61 +58,4 @@ export class CadastroClientesComponent implements OnInit {
   }
 
 }
-  
-  /*
-  formCadastro;
-  valoresForm: Object;
-  conversao;
-  constructor(
-    private fb: FormBuilder,
-    public dialog: MatDialog,
-    private router: Router) { }
 
-  ngOnInit() {
-    // this.formCadastro
-    localStorage.clear();
-    this.formCadastro = this.fb.group({
-      nome: [''],
-      cpf: [''],
-      email: [''],
-      telefone: [''],
-      endereco: ['']
-    });
-    // console.log(this.valoresForm);
-    // setTimeout(() => {
-    //   this.formCadastro.patchValue({
-    //     'nome': 'Nicolas Daniel Victor da Conceição',
-    //     'cpf': '16938868719',
-    //     'email': 'nnicolasdanielvictordaconceicao@lubeka.com.br',
-    //     'telefone': '(94) 3565-6035',
-    //     'endereco': 'Quadra Quatro',
-    //     });
-    // }, 2000);
-    this.formCadastro.valueChanges.pipe(
-      debounceTime(1000))
-      .subscribe(res => {
-        console.log(res);
-        this.valoresForm = res;
-      });
-  }
-  cadastro() {
-    this.conversao = JSON.stringify(this.valoresForm);
-    console.log(this.conversao);
-    localStorage.setItem('cadastro', this.conversao);
-
-    // verificar modal aqui
-    this.verificaCadastro();
-  }
-
-  verificaCadastro() {
-    setTimeout(() => {
-      if (localStorage.getItem('cadastro')) {
-        // TODO REDIRECIIONAR PARA PAGINA DE CADASTRO CONCLUIDO
-        this.router.navigate(['cadastro-concluido']);
-      } else {
-        return false;
-      }
-    }, 200);
-  }
-
-}*/

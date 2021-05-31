@@ -1,9 +1,7 @@
 export interface Cliente {
   id: string;
   nome: string;
-  endereco: string;
-  fone: string;
-  nasc: string;
+  sobrenome: string;
   email: string;
   senha: string;
 }

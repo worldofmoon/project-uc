@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.formLogin = this.fb.group({
-      cpf: ['']
+      email: ['']
     });
   }
   onlynumber(evt) {
@@ -41,9 +41,9 @@ export class LoginComponent implements OnInit {
   }
   login() {
     this.getCadastro = JSON.parse(localStorage.getItem('cadastro'));
-    const cpfPersistido = this.getCadastro['cpf'];
-    const cpfDigitado = this.formLogin.get('cpf').value;
-    if (cpfPersistido === cpfDigitado) {
+    const emailPersistido = this.getCadastro['email'];
+    const emailDigitado = this.formLogin.get('email').value;
+    if (emailPersistido === emailDigitado) {
       this.router.navigate(['home-logada']);
     } else {
       this.openDialog();

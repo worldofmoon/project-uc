@@ -1,9 +1,9 @@
 .topicos {
     width: 100vw;
-    height: 50vh;
+    height: 15vh;
     background: #4682B4;
     color: rgba(255, 255, 255, 0.6) !important;
-    padding: 90px;
+    padding: 5px;
 }
 
 .topicos h6 {

@@ -16,35 +16,11 @@
       <mat-form-field>
         <input type="text"
         matInput
-        placeholder="Enderço"
-        formControlName="endereco"
-        name="endereco"/>
-        <mat-error *ngIf="form.get('endereco').invalid">Digite um endereço válido</mat-error>
+        placeholder="Sobrenome"
+        formControlName="sobrenome"
+        name="sobrenome"/>
+        <mat-error *ngIf="form.get('sobrenome').invalid">Digite um sobrenome válido</mat-error>
       </mat-form-field>
-      
-      <div class="row">
-        <div class="col-sm">
-          <mat-form-field>
-            <input type="text"
-            matInput
-            placeholder="Telefone"
-            formControlName="fone"
-            name="fone"/>
-            <mat-error *ngIf="form.get('fone').invalid">Digite um telefone válido</mat-error>
-          </mat-form-field>
-        </div>
-
-        <div class="col-sm">
-          <mat-form-field>
-            <input type="text" mask="DD/MM/YYYY"
-            matInput
-            placeholder="Data Nascimento"
-            formControlName="nasc"
-            name="nasc"/>
-            <mat-error *ngIf="form.get('nasc').invalid">Digite um telefone válido</mat-error>
-          </mat-form-field>
-        </div>
-      </div>
 
       <mat-form-field>
         <input type="text"
@@ -63,7 +39,7 @@
             placeholder="Senha"
             formControlName="senha"
             name="senha"/>
-            <mat-error *ngIf="form.get('senha').invalid">Digite um nome válido</mat-error>
+            <mat-error *ngIf="form.get('senha').invalid">Digite uma senha válida (a senha deve conter no mínimo 8 caracteres)</mat-error>
           </mat-form-field>
         </div>
         
@@ -72,9 +48,9 @@
             <input type="password"
             matInput
             placeholder="Confirmar Senha"
-            formControlName="senha"
-            name="senha"/>
-            <mat-error *ngIf="form.get('senha').invalid">Digite um nome válido</mat-error>
+            formControlName="senhaConfirm"
+            name="senhaConfirm"/>
+            <mat-error *ngIf="form.get('senhaConfirm').invalid">As senhas não coincidem</mat-error>
           </mat-form-field>
         </div>
         
