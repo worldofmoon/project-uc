@@ -38,6 +38,7 @@ import { ChatDoadorComponent } from './chat-doador/chat-doador.component';
 import { ChatOngComponent } from './chat-ong/chat-ong.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +73,7 @@ import { ChatOngComponent } from './chat-ong/chat-ong.component';
     MatExpansionModule,
     MatTableModule,
     HttpClientModule,
+    // NbChatModule,
    // NgxMaskModule.forRoot({
     //  dropSpecialCharacters: true // false ao salvar, a mascara sera mantida, true salva sem
   //  }),
@@ -83,3 +85,4 @@ import { ChatOngComponent } from './chat-ong/chat-ong.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
+// export class PageModule { }
