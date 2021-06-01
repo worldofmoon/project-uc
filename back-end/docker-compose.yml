@@ -37,3 +37,9 @@ services:
       ONG_NAME: doatech
       ONG_EMAIL: doatech
       ONG_PASSWORD: doatech
+
+  nginx:
+    build: nginx
+    restart: unless-stopped
+    ports:
+      - 80:80

@@ -13,10 +13,10 @@ cd $CURRDIR/front-end
 if command -v yarn &> /dev/null; then
     yarn build
 else
-    npm build
+    npm run build
 fi
 
-mv dist/doa-tech $CURRDIR/out/public
+mv dist/doa-tech $CURRDIR/out/nginx/public
 
 cd $CURRDIR/out
 

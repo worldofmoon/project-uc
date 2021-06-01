@@ -1,4 +1,3 @@
-import path from 'path';
 import {createConnection} from "typeorm";
 import dotenv from "dotenv";
 import express from "express";
@@ -12,7 +11,6 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api', routes);
 
@@ -25,13 +23,10 @@ createConnection().then(async () => {
 
   try {
     await User.createAdmin(ONG_NAME, ONG_NAME, ONG_EMAIL, ONG_PASSWORD);
-  } catch(e) {
-    console.log(e);
-  }
+  } catch(e) {} // eslint-disable-line
 
   const port = process.env.PORT || 3000;
   app.listen(port, () => {
     console.log('API Running on port', port);
-    console.log(__dirname)
   });
 });

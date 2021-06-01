@@ -11,7 +11,5 @@ RUN yarn install
 COPY . .
 RUN make build
 
-RUN mv public dist/public
-
 ENTRYPOINT ["./entrypoint.sh" ]
 CMD ["yarn", "start"]

@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 import { User } from "../models/user";
 import { verifyAuth, validateRequestBody, verifyAdmin } from "../middlewares/user";
 import { QueryFailedError } from "typeorm";
+import bcrypt from "bcrypt";
 
 const router = Router();
 
@@ -55,9 +56,8 @@ router.post('/', validateRequestBody, async (req: Request, res: Response): Promi
   user.firstName = firstName;
   user.lastName = lastName;
   user.email = email;
-  user.password = password;
+  user.password = await bcrypt.hash(password, 10);
   user.isAdmin = false;
-  user.hashPassword();
   try {
     await user.save();
   } catch(e) {
