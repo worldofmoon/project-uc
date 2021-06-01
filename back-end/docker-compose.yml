@@ -30,9 +30,9 @@ services:
       TYPEORM_SYNCHRONIZE: 'false'
       TYPEORM_LOGGING: 'false'
       TYPEORM_ENTITIES: dist/models/*.js
-      TYPEORM_ENTITIES_DIR: dist/models/
+      TYPEORM_ENTITIES_DIR: src/models/
       TYPEORM_MIGRATIONS: dist/models/migrations/*.js
-      TYPEORM_MIGRATIONS_DIR: dist/models/migrations/
+      TYPEORM_MIGRATIONS_DIR: src/models/migrations/
       JWT_SECRET: secret
       ONG_NAME: doatech
       ONG_EMAIL: doatech
