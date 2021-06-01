@@ -20,4 +20,4 @@ mv dist/doa-tech $CURRDIR/out/nginx/public
 
 cd $CURRDIR/out
 
-docker-compose up --build -d
+docker-compose -f docker-compose.prod.yml up --build -d
