@@ -9,12 +9,13 @@ import { SingletonRouterService } from 'src/services/singletonRouter.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit  {
+  videos: any[];
   title = 'app';
   isShow: boolean;
   data = false;
   constructor(
     public dialog: MatDialog,
-    private singletonService: SingletonRouterService) {
+    private singletonService: SingletonRouterService,) {
   }
   // tslint:disable-next-line:use-life-cycle-interface
   ngOnInit() {
