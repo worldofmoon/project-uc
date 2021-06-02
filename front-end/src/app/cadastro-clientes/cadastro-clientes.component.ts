@@ -6,6 +6,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Cliente } from './cliente.model';
 import { ClienteService } from './cliente.service';
 import { mainModule } from 'process';
+import { ValidatorFn } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro-clientes',
@@ -18,7 +19,7 @@ export class CadastroClientesComponent implements OnInit {
   private idCliente: string;
   public cliente: Cliente;
   form: FormGroup;
-  
+
   ngOnInit() {
     this.form = new FormGroup ({
       nome: new FormControl (null, {
@@ -36,12 +37,20 @@ export class CadastroClientesComponent implements OnInit {
       senhaConfirm: new FormControl (null, {
         validators: [Validators.required]
       })
-    })
+    });
+    this.form = this.formBuilder.group({
+      senhaConfirm: ['', this.validarSenhas],
+      usuario: [''],
+      senha: ['']
+    });
   }
 
-  constructor(public clienteService: ClienteService, public route: ActivatedRoute, private router: Router) {}
+
+
+  constructor(public clienteService: ClienteService, public route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {}
 
   onSalvarCliente() {
+    console.log(this.form.getRawValue());
     if (this.form.invalid) {
       return;
     }
@@ -57,5 +66,17 @@ export class CadastroClientesComponent implements OnInit {
     this.router.navigate(['cadastro-concluido']);
   }
 
+  validarSenhas = (senhaConfirm: FormControl): ValidatorFn => {
+    console.log(senhaConfirm.value); // imprimindo o valor da confirmação de senha
+    if (this.form) {
+      console.log(this.form.get('senha').value); // imprimindo o vlaor da senha
+    }
+    return null;
+  }
+
+
+
 }
+
+
 
