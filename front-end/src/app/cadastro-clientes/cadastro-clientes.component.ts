@@ -15,22 +15,21 @@ import { mainModule } from 'process';
 
 export class CadastroClientesComponent implements OnInit {
   private modo: string = "criar";
-  private idCliente: string;
   public cliente: Cliente;
   form: FormGroup;
   
   ngOnInit() {
     this.form = new FormGroup ({
-      nome: new FormControl (null, {
+      firstName: new FormControl (null, {
         validators: [Validators.required, Validators.minLength(3)]
       }),
-      sobrenome: new FormControl (null, {
+      lastName: new FormControl (null, {
         validators: [Validators.required, Validators.minLength(3)]
       }),
       email: new FormControl (null, {
         validators: [Validators.required, Validators.email]
       }),
-      senha: new FormControl (null, {
+      password: new FormControl (null, {
         validators: [Validators.required, Validators.minLength(8)]
       }),
       senhaConfirm: new FormControl (null, {
@@ -47,10 +46,10 @@ export class CadastroClientesComponent implements OnInit {
     }
     if (this.modo === "criar") {
       this.clienteService.adicionarCliente(
-        this.form.value.nome,
-        this.form.value.sobrenome,
+        this.form.value.firstName,
+        this.form.value.lastName,
         this.form.value.email,
-        this.form.value.senha
+        this.form.value.password
       );
     }
     this.form.reset();
@@ -58,4 +57,6 @@ export class CadastroClientesComponent implements OnInit {
   }
 
 }
+
+
 

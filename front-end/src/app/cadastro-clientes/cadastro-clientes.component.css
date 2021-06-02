@@ -23,6 +23,7 @@
     background-color: #4682B4;
     font-weight: bold;
     color: #ffff;
+    /* float: right; */
 }
 
 mat-form-field, input {

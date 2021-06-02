@@ -1,29 +1,9 @@
 {
-    "id":1,
-    "createdAt":"2021-01-01",
-    "updatedAt":"2021-01-02",
-    "giver":
-        {"id": 1,
-        "firstName": "string",
-        "lastName": "string",
-        "email": "string",
-        "password": "string",
-        "isAdmin": false
-        },
-    "computer":
-            {"id": 1,
-            "title": "string",
-            "description": "string"
-            },
-    "status":"PENDING_APPROVAL",
-    "collectionDate":"2021-01-01",
-    "address":"2021-01-01"
-}
-
-{
-    "item": "string",
-    "dataDoacao": "2020-01-01",
-    "descricao": "string"
+    "computer": {
+      "title": "stringtesteeeeee",
+      "description": "stringaloooooooou"
+    },
+    "address": "stringquebagulhochatomeudeus"
 }
 // CRIAR DOADOR
 {

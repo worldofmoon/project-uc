@@ -5,9 +5,9 @@
       <mat-accordion *ngIf="doacoes.length > 0">
         <h6>Suas Doações:</h6>
         <mat-expansion-panel *ngFor="let doacao of doacoes">
-          <mat-expansion-panel-header> Item Doado: {{ doacao.item }}</mat-expansion-panel-header>
-          <p>Data Retirada: {{ doacao.dataDoacao | date: 'dd/MM/yyyy' }}</p>
-          <p>Descrição: {{ doacao.descricao }}</p>
+          <mat-expansion-panel-header> Item Doado: {{ doacao.computer.title }}</mat-expansion-panel-header>
+          <p>Data Retirada: {{ doacao.collectionDate | date: 'dd/MM/yyyy' }}</p>
+          <p>Descrição: {{ doacao.computer.description }}</p>
           <mat-action-row>
             <a mat-button color="primary" [routerLink]="['/editar', doacao.id]">Editar</a>
             <button mat-button color="warn" (click)="onDelete(doacao.id)">Remover</button>

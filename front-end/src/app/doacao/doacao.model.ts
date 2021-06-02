@@ -1,6 +1,10 @@
 export interface Doacao {
     id: string;
-    item: string;
-    dataDoacao: string;
-    descricao: string;
+    createdAt: Date;
+    collectionDate: string
+    computer:
+    {
+        title: string;
+        description: string;
     }
+}

@@ -7,30 +7,25 @@ import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class ClienteService {
-  private clientes: Cliente[] = [];
-  private listaClientesAtualizada = new Subject<Cliente[]>();
-
+  
   constructor(private httpClient: HttpClient, private router: Router) {}
 
 
-  adicionarCliente(nome: string, sobrenome: string, email: string,  senha: string) {
-    const dadosCliente = new FormData();
-    dadosCliente.append('nome', nome);
-    dadosCliente.append('sobrenome', sobrenome);
-    dadosCliente.append('email', email);
-    dadosCliente.append('senha', senha);
+  adicionarCliente(firstName: string, lastName: string, email: string,  password: string) {
+    const dadosCliente = {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      password: password
+    };
 
-    this.httpClient.post<{ mensagem: string, id: string }>('http://localhost:3000/api/users', dadosCliente).subscribe((dados) => {
+    this.httpClient.post<{ mensagem: string, id: string }>('http://localhost:3000/api/users/',dadosCliente).subscribe((dados) => {
       const cliente: Cliente = {
-        id: dados.id,
-        nome: nome,
-        sobrenome: sobrenome,
+        firstName: firstName,
+        lastName: lastName,
         email: email,
-        senha: senha
+        password: password
       };
-      this.clientes.push(cliente);
-      this.listaClientesAtualizada.next([...this.clientes]);
-      this.router.navigate(['cadasto-concluido']);
     });
   } 
 }
