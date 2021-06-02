@@ -19,7 +19,15 @@ router.post('/authenticate', async (req: Request, res: Response): Promise<void> 
     return;
   }
 
-  const user = await User.findOne({email});
+  let user: User;
+  try {
+    user = await User.findOne({where: {email}});
+  } catch(e) {
+    console.log(e);
+    res.status(404).json({error: 'User not found'});
+    return;
+  }
+
   const match = await user.comparePassowrd(password);
   if (!match) {
     res.status(403).json({error: 'Wrong password'});

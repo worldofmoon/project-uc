@@ -30,6 +30,7 @@ router.get('/', async (req: Request, res: Response) => {
 
     const message = {
       user: {
+        id: user.id,
         firstName: user.firstName,
         lastName: user.lastName,
       },
