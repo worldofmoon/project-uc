@@ -9,7 +9,8 @@
         matInput
         placeholder="Nome"
         formControlName="nome"
-        name="nome"/>
+        name="nome"
+        required/>
         <mat-error *ngIf="form.get('nome').invalid">Digite um nome válido</mat-error>
       </mat-form-field>
 
@@ -18,7 +19,8 @@
         matInput
         placeholder="Sobrenome"
         formControlName="sobrenome"
-        name="sobrenome"/>
+        name="sobrenome"
+        required/>
         <mat-error *ngIf="form.get('sobrenome').invalid">Digite um sobrenome válido</mat-error>
       </mat-form-field>
 
@@ -27,7 +29,8 @@
         matInput
         placeholder="E-mail"
         formControlName="email"
-        name="email"/>
+        name="email"
+        required/>
         <mat-error *ngIf="form.get('email').invalid">Digite um e-mail válido</mat-error>
       </mat-form-field>
 
@@ -38,7 +41,8 @@
             matInput
             placeholder="Senha"
             formControlName="senha"
-            name="senha"/>
+            name="senha"
+            required/>
             <mat-error *ngIf="form.get('senha').invalid">Digite uma senha válida (a senha deve conter no mínimo 8 caracteres)</mat-error>
           </mat-form-field>
         </div>
@@ -49,7 +53,8 @@
             matInput
             placeholder="Confirmar Senha"
             formControlName="senhaConfirm"
-            name="senhaConfirm"/>
+            name="senhaConfirm"
+            required/>
             <mat-error *ngIf="form.get('senhaConfirm').invalid">As senhas não coincidem</mat-error>
           </mat-form-field>
         </div>
