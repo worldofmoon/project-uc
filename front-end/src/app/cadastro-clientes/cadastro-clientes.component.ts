@@ -67,12 +67,4 @@ export class CadastroClientesComponent implements OnInit {
     }
     return null;
   }
-
-
-
-<<<<<<< HEAD
-
-
-=======
 }
->>>>>>> b8aac5153af248f143c45b9ca014a85982c2fac5
