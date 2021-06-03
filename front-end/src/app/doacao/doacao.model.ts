@@ -1,10 +1,8 @@
 export interface Doacao {
-    id: string;
-    createdAt: Date;
-    collectionDate: string
-    computer:
-    {
+
+        id:number ;
         title: string;
         description: string;
-    }
+        status: number;
+
 }

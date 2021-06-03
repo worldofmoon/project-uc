@@ -18,13 +18,9 @@ export class ListaDoacaoComponent implements OnInit, OnDestroy {
     this.doacaoService.getDoacoes();
     this.doacoesSubscription = this.doacaoService
        .getListaDeDoacoesAtualizadaObservable()
-       .subscribe((doacoes: Doacao[]) => {
-         this.doacoes = doacoes;
+       .subscribe((dados: {doacoes: []}) => {
+        this.doacoes = dados.doacoes;
        });
-  }
-
-  onDelete (id: string): void {
-    this.doacaoService.removerDoacao(id);
   }
   ngOnDestroy(): void {
     this.doacoesSubscription.unsubscribe();

@@ -15,7 +15,6 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 
 export class CadastroDoacaoComponent implements OnInit {
   private modo: string = "criar";
-  private idDoaco: string;
   private doacao: Doacao;
   form: FormGroup;
   isDisplayed = true;
@@ -31,40 +30,13 @@ export class CadastroDoacaoComponent implements OnInit {
 
   ngOnInit() {
     this.form = new FormGroup({
-      item: new FormControl (null, {
+      title: new FormControl (null, {
       validators: [Validators.required, Validators.minLength(3)]
       }),
-      dataDoacao: new FormControl (null, {
+      description: new FormControl (null, {
       validators: [Validators.required]
-      }),
-      descricao: new FormControl (null, {
-      validators: [Validators.required]
-    })
+      })
   })
-    this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      if(paramMap.has("idDoacao")) {
-        this.modo = "editar";
-        this.idDoaco = paramMap.get("idDoacao");
-        this.doacaoService.getDoacao(this.idDoaco).subscribe( dadosCli => {
-          this.doacao = {
-            // _id = id do mongoDB
-            id: dadosCli._id,
-            item: dadosCli.item,
-            dataDoacao: dadosCli.dataDoacao,
-            descricao: dadosCli.descricao
-          };
-          this.form.setValue({
-            item: this.doacao.item,
-            dataDoacao: this.doacao.dataDoacao,
-            descricao: this.doacao.descricao
-          })
-        });
-      }
-      else{
-        this.modo = "criar";
-        this.idDoaco = null;
-      }
-    });
   }
 
   constructor(public doacaoService: DoacaoService, public route: ActivatedRoute, private router:Router) {}
@@ -75,23 +47,12 @@ export class CadastroDoacaoComponent implements OnInit {
     }
     if (this.modo === "criar") {
       this.doacaoService.adicionarDoacao(
-        this.form.value.item,
-        this.form.value.descricao,
-        this.form.value.dataDoacao
+        this.form.value.title,
+        this.form.value.description,
       );
-    }
-    else {
-      this.doacaoService.atualizarDoacao(
-        this.idDoaco,
-        this.form.value.item,
-        this.form.value.descricao,
-        this.form.value.dataDoacao
-      )
-    }    
+    }  
     this.form.reset();
   }
-
-
   gotoChat() {
     this.router.navigate(['chat-doador']);
   }
