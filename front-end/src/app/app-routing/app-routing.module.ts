@@ -16,18 +16,18 @@ import { ChatDoadorComponent } from './../chat-doador/chat-doador.component';
 import {ChatOngComponent} from './../chat-ong/chat-ong.component';
 
 const routes: Routes = [
+  { path: '', component: ContentComponent },
   { path: 'home', component: ContentComponent },
   { path: 'cadastro-clientes', component: CadastroClientesComponent },
   { path: 'cadastro-concluido', component: CadastroConcluidoComponent },
   { path: 'home-logada', component: HomeLogadaComponent, canActivate: [AuthGuard] },
   { path: 'acesso-negado', component: AcessoNegadoComponent},
-  { path: 'login', component: LoginComponent},
   { path: 'quem-somos', component: QuemSomosComponent},
-  { path: 'cadastro-doacao', component: CadastroDoacaoComponent},
-  { path: 'cadastro-doacao', component: ListaDoacaoComponent},
-  { path: 'controle-doacao', component: ControleDoacaoComponent},
-  { path: 'chat-doador', component: ChatDoadorComponent },
-  { path: 'chat-ong', component: ChatOngComponent },
+  { path: 'cadastro-doacao', component: CadastroDoacaoComponent, canActivate: [AuthGuard] },
+  { path: 'cadastro-doacao', component: ListaDoacaoComponent, canActivate: [AuthGuard] },
+  { path: 'controle-doacao', component: ControleDoacaoComponent, canActivate: [AuthGuard] },
+  { path: 'chat-doador', component: ChatDoadorComponent, canActivate: [AuthGuard]  },
+  { path: 'chat-ong', component: ChatOngComponent, canActivate: [AuthGuard]  },
 ];
 
 @NgModule({

@@ -34,7 +34,7 @@ export class CadastroClientesComponent implements OnInit {
         validators: [Validators.required, Validators.minLength(8)]
       }),
       senhaConfirm: new FormControl (null, {
-        validators: [Validators.required, this.validarSenhas]
+        validators: [Validators.required, Validators.minLength(8)]
       })
     });
   }
@@ -58,13 +58,5 @@ export class CadastroClientesComponent implements OnInit {
     }
     this.form.reset();
     this.router.navigate(['cadastro-concluido']);
-  }
-
-  validarSenhas = (senhaConfirm: FormControl): ValidatorFn => {
-    console.log(senhaConfirm.value); // imprimindo o valor da confirmação de senha
-    if (this.form) {
-      console.log(this.form.value.senha); // imprimindo o vlaor da senha
-    }
-    return null;
   }
 }

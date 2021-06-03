@@ -3,7 +3,8 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ModalNotCadastroComponent } from '../modal-not-cadastro/modal-not-cadastro.component';
 import { MatDialog } from '@angular/material';
-
+import { CadastroService } from './shared/cadastro.services';
+import { stringify } from '@angular/core/src/util';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,35 +17,40 @@ export class LoginComponent implements OnInit {
   regex;
   keys;
   getCadastro;
+  logado;
   message;
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    public dialog: MatDialog) { }
+    public dialog: MatDialog,
+    private cadastroService: CadastroService
+    ) { }
 
   ngOnInit() {
     this.formLogin = this.fb.group({
-      email: ['']
+      email: '',
+      password: ''
     });
+    this.logado = localStorage.getItem('cadastro');
+    console.log(this.logado);
+    
   }
-  onlynumber(evt) {
-    this.theEvent = evt || window.event;
-    this.key = this.theEvent.keyCode || this.theEvent.which;
-    this.key = String.fromCharCode(this.key);
-    this.regex = /^[0-9.]+$/;
-    if (!this.regex.test(this.key)) {
-      this.theEvent.returnValue = false;
-      if (this.theEvent.preventDefault) {
-        this.theEvent.preventDefault();
-      }
+
+  async logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('cadastro');
+    this.ngOnInit();
+    this.router.navigate(['home']);
+  }
+  async login() {
+    const user = {
+      email: this.formLogin.get('email').value,
+      password: this.formLogin.get('password').value
     }
-  }
-  login() {
-    this.getCadastro = JSON.parse(localStorage.getItem('cadastro'));
-    const emailPersistido = this.getCadastro['email'];
-    const emailDigitado = this.formLogin.get('email').value;
-    if (emailPersistido === emailDigitado) {
-      this.router.navigate(['home-logada']);
+    const result = await this.cadastroService.login(user);
+    if (result) {
+      this.ngOnInit();
+      this.router.navigate(['cadastro-doacao']);
     } else {
       this.openDialog();
     }

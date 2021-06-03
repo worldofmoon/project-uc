@@ -16,11 +16,11 @@ export class ListaDoacaoComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.doacaoService.getDoacoes();
-    this.doacoesSubscription = this.doacaoService
-       .getListaDeDoacoesAtualizadaObservable()
-       .subscribe((dados: {doacoes: []}) => {
-        this.doacoes = dados.doacoes;
-       });
+    // this.doacoesSubscription = this.doacaoService
+    //    .getListaDeDoacoesAtualizadaObservable()
+    //    .subscribe((dados: {doacoes: []}) => {
+    //     this.doacoes = dados.doacoes;
+    //    });
   }
   ngOnDestroy(): void {
     this.doacoesSubscription.unsubscribe();

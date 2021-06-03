@@ -42,7 +42,6 @@ export class DoacaoService {
           status: doacao.status
 
         }))
-        console.log(doacoes)
         this.doacoes = doacoes;
         this.listaDoacoesAtualizada.next({
           doacoes: [...this.doacoes]

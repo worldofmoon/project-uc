@@ -17,8 +17,8 @@ export class HomeLogadaComponent implements OnInit {
     private userService: UserService) { }
 
   ngOnInit() {
-    this.getCadastro = JSON.parse(localStorage.getItem('cadastro'));
-    this.nameCliente = this.getCadastro['nome'];
+    this.getCadastro = localStorage.getItem('cadastro');
+    this.nameCliente = this.getCadastro['firstName'];
     console.log(this.nameCliente);
 
     this.modalidade = this.modalidadeService.getModalidade();

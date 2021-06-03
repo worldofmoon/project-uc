@@ -3,8 +3,8 @@ import { FormControl ,FormGroup, NgForm, Validators } from '@angular/forms';
 import { Doacao } from '../doacao.model';
 import { DoacaoService } from '../doacao.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-//import { debounceTime } from 'rxjs/operators';
-//import { MatDialog } from '@angular/material';
+import { debounceTime } from 'rxjs/operators';
+import { MatDialog } from '@angular/material';
 
 
 @Component({
@@ -41,20 +41,20 @@ export class CadastroDoacaoComponent implements OnInit {
 
   constructor(public doacaoService: DoacaoService, public route: ActivatedRoute, private router:Router) {}
 
-  onAdicionarDoacao() {
-    if (this.form.invalid) {
-      return;
-    }
-    if (this.modo === "criar") {
-      this.doacaoService.adicionarDoacao(
-        this.form.value.title,
-        this.form.value.description,
-      );
-    }  
-    this.form.reset();
-  }
-  gotoChat() {
-    this.router.navigate(['chat-doador']);
-  }
+  // onAdicionarDoacao() {
+  //   if (this.form.invalid) {
+  //     return;
+  //   }
+  //   if (this.modo === "criar") {
+  //     this.doacaoService.adicionarDoacao(
+  //       this.form.value.title,
+  //       this.form.value.description,
+  //     );
+  //   }  
+  //   this.form.reset();
+  // }
+  // gotoChat() {
+  //   this.router.navigate(['chat-doador']);
+  // }
 
 } 
