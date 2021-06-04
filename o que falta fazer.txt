@@ -1,0 +1,15 @@
+Doação -> Doador {
+Exibir o doador,
+Data null exibir não agendado
+If do status
+}
+
+
+Doação -> ONG {
+Listar Doações (ta praticamente pronto pq conseguimos usar o do doador)
+Editar (Data retirada e Status)
+}
+
+Chat -> ONG/DOADOR {
+FALTA TUDO, KAREN ANDA LOGO!!!!
+}

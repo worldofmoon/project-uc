@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import axios from 'axios'
+import { CadastroService } from './../login/shared/cadastro.services'
 
 @Injectable({ providedIn: 'root' })
 export class DoacaoService {
@@ -32,8 +33,10 @@ export class DoacaoService {
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
+
   getDoacoes(): void {
-    axios.get('http://localhost:3000/api/donations/', { headers: { Authorization: 'Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjIyNTg3MzY2fQ.2_Syoe8avcvVgQ55kKxvPyW_pu-6sJsaxthsvdVhK8ElOpVa2cpfAfpCukOJyCaawFTLsG656mbPfpdayQvNgA' } })
+
+    axios.get('http://localhost:3000/api/donations/', { headers: {Authorization: `Bearer ${localStorage.getItem('token')}` } })
       .then(resp => {
         const doacoes = resp.data.map(doacao => ({
           id: doacao.id,
@@ -45,9 +48,11 @@ export class DoacaoService {
         this.doacoes = doacoes;
         this.listaDoacoesAtualizada.next({
           doacoes: [...this.doacoes]
+          
         });
+        console.log(doacoes)
       })
-
+      
   }
 
   adicionarDoacao(id: number, title: string, description: string, status: number) {
