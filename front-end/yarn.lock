@@ -128,7 +128,7 @@
     "symbol-observable" "^1.2.0"
     "yargs-parser" "^10.0.0"
 
-"@angular/common@^6.0.3":
+"@angular/common@^6.0.3", "@angular/common@>=6.0.0":
   "integrity" "sha512-zjJ9WDW9787sTRiNeUvQaCvGZJu1dI8A3fYtSL8BKrGhxLsf24cSa3ljbrSmtIsCGImNxTToHzPFXo4sx2dvYg=="
   "resolved" "https://registry.npmjs.org/@angular/common/-/common-6.0.9.tgz"
   "version" "6.0.9"
@@ -207,6 +207,13 @@
   "version" "6.0.9"
   dependencies:
     "tslib" "^1.9.0"
+
+"@auth0/angular-jwt@3.0.1":
+  "integrity" "sha512-hfWfgbpgtcvyU/agNxQ6cBk81mmASiNxQeZ6xn/3zJo8uLFHk2eQIy2yt2ztktcOQ6V2uc6GlKLRKjVIgyc1Sw=="
+  "resolved" "https://registry.npmjs.org/@auth0/angular-jwt/-/angular-jwt-3.0.1.tgz"
+  "version" "3.0.1"
+  dependencies:
+    "url" "^0.11.0"
 
 "@ngtools/webpack@6.0.8":
   "integrity" "sha512-jorGpTd82ILbyUwg4JQekovHFaYwSMlZan4f7x+sd3+2WgyL3Z1+ZbVSGKvXZWKS/mAVx7eLkRikzJkuC4FgHw=="
@@ -4385,11 +4392,6 @@
   "integrity" "sha512-sdMWKjRq8qWZEjDcVA6llnUT8RDEBIfOiGpYFPYa9u+2c39JCsejktSP7mj5eRid5EIvTzIpQ2kDOCw1Nq9BjQ=="
   "resolved" "https://registry.npmjs.org/just-diff/-/just-diff-3.1.1.tgz"
   "version" "3.1.1"
-
-"jwt-decode@^3.1.2":
-  "integrity" "sha512-UfpWE/VZn0iP50d8cz9NrZLM9lSWhcJ+0Gt/nm4by88UL+J1SiKN8/5dkjMmbEzwL2CAe+67GsegCbIKtbp75A=="
-  "resolved" "https://registry.npmjs.org/jwt-decode/-/jwt-decode-3.1.2.tgz"
-  "version" "3.1.2"
 
 "karma-chrome-launcher@~2.2.0":
   "integrity" "sha512-uf/ZVpAabDBPvdPdveyk1EPgbnloPvFFGgmRhYLTDH7gEB4nZdSBk8yTU47w1g/drLSx5uMOkjKk7IWKfWg/+w=="
