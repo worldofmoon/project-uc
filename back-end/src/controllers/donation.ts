@@ -10,7 +10,7 @@ const router = Router();
 router.get('/', async (req: Request, res: Response) => {
   const userLogged: User = req['user'];
 
-  const filter = {relations: ['computer']};
+  const filter = {relations: ['computer', 'giver']};
   if (!userLogged.isAdmin) filter['where'] = {giver: {id: userLogged.id}};
 
   const donations = await Donation.find(filter);
