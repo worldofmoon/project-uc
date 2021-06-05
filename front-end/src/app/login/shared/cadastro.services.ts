@@ -15,6 +15,7 @@ export class CadastroService {
     if (result && result.token) {
       window.localStorage.setItem('token', result.token);
       window.localStorage.setItem('cadastro', result.user);
+      window.localStorage.setItem('admin', result.user.isAdmin);
       return true;
     }
 

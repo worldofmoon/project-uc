@@ -24,19 +24,20 @@ export class LoginComponent implements OnInit {
     private router: Router,
     public dialog: MatDialog,
     private cadastroService: CadastroService
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.formLogin = this.fb.group({
       email: '',
       password: ''
     });
-    this.logado = localStorage.getItem('cadastro');    
+    this.logado = localStorage.getItem('cadastro');
   }
 
   async logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('cadastro');
+    localStorage.removeItem('admin');
     this.ngOnInit();
     this.router.navigate(['home']);
   }
@@ -46,9 +47,16 @@ export class LoginComponent implements OnInit {
       password: this.formLogin.get('password').value
     }
     const result = await this.cadastroService.login(user);
+    let admin = localStorage.getItem('admin');
+    console.log(admin)
     if (result) {
       this.ngOnInit();
-      this.router.navigate(['cadastro-doacao']);
+      if (admin) {
+        this.router.navigate(['controle-doacao']);
+      }else{
+        this.router.navigate(['cadastro-doacao']);
+      }
+
     } else {
       this.openDialog();
     }
