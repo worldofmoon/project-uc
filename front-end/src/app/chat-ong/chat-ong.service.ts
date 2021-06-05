@@ -17,28 +17,7 @@ export class ChatOngService {
 
   constructor() { }
 
-  getChatOng(): void {
-
-    axios.get('http://localhost:3000/api/messages/', { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
-      .then(resp => {
-        const messages = resp.data.map(message => ({
-          id: doacao.id,
-          title: doacao.computer.title,
-          collectionDate: this.parseDate(doacao.collectionDate),
-          description: doacao.computer.description,
-          address: doacao.address,
-          status: this.parseStatus(doacao.status),
-          firstName: doacao.giver.firstName
-
-        }))
-        this.doacoes = doacoes;
-        this.listaDoacoesAtualizada.next({
-          doacoes: [...this.doacoes]
-
-        });
-      })
-
-  }
-
-
+   
+   
+  
 }

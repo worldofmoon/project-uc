@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   getCadastro;
   logado;
   message;
-  admin = false
+  admin;
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -56,7 +56,6 @@ export class LoginComponent implements OnInit {
       } else {
         this.router.navigate(['controle-doacao']);
       }
-
     } else {
       this.openDialog();
     }

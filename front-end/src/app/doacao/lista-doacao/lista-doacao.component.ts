@@ -8,7 +8,7 @@ import { DoacaoService } from '../doacao.service';
   templateUrl: './lista-doacao.component.html',
   styleUrls: ['./lista-doacao.component.css']
 })
-export class ListaDoacaoComponent implements OnInit {
+export class ListaDoacaoComponent implements OnInit, OnDestroy {
   doacoes: Doacao[] = [];
   private doacoesSubscription: Subscription;
 
@@ -21,5 +21,9 @@ export class ListaDoacaoComponent implements OnInit {
        .subscribe((dados: {doacoes: []}) => {
         this.doacoes = dados.doacoes;
        });
+  }
+
+  ngOnDestroy(): void {
+    this.doacoesSubscription.unsubscribe();
   }
 }
