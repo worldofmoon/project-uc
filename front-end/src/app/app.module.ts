@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'; // add this line
+import { HttpClientModule } from '@angular/common/http'; // add this line
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -18,13 +18,7 @@ import { AuthService } from 'auth.service';
 import { AcessoNegadoComponent } from './acesso-negado/acesso-negado.component';
 import { ModalNotCadastroComponent } from './modal-not-cadastro/modal-not-cadastro.component';
 import { SingletonRouterService } from '../services/singletonRouter.service';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatCardModule} from '@angular/material/card';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatExpansionModule } from '@angular/material/expansion';
-import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule, MatCardModule, MatInputModule, MatButtonModule, MatToolbarModule, MatExpansionModule, MatTableModule } from '@angular/material';
 //import { NgxMaskModule } from 'ngx-mask';
 
 import { LoginComponent } from './login/login.component';
@@ -34,8 +28,8 @@ import { ListaDoacaoComponent } from './doacao/lista-doacao/lista-doacao.compone
 import { DoacaoService } from './doacao/doacao.service';
 import { ControleDoacaoComponent } from './controle-doacao/controle-doacao.component';
 import { ClienteService } from './cadastro-clientes/cliente.service';
-import { ChatDoadorComponent } from './chat-doador/chat-doador.component';
 import { ChatOngComponent } from './chat-ong/chat-ong.component';
+import { ChatClienteComponent } from './chat-cliente/chat-cliente.component';
 
 
 
@@ -55,8 +49,8 @@ import { ChatOngComponent } from './chat-ong/chat-ong.component';
     CadastroDoacaoComponent,
     ListaDoacaoComponent,
     ControleDoacaoComponent,
-    ChatDoadorComponent,
-    ChatOngComponent
+    ChatOngComponent,
+    ChatClienteComponent
   ],
   imports: [
     BrowserModule,

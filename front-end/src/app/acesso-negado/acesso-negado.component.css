@@ -1,6 +1,19 @@
 .wrapper-content {
-    width: 100vw;
+    text-align: center;
+    width: 80vw;
     height: 70vh;
     z-index: -9999;
     top: -60px;
 } 
+
+.btn-chat {
+    position: relative;
+
+    padding: 10px;
+    font-size: 16px;
+    width: 15%;
+    background: #191970;
+    color: #fff;
+    border: 2px solid;
+    /* margin-left: 80%; */
+  }

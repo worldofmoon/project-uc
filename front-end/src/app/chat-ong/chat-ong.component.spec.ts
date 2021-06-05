@@ -15,7 +15,7 @@ describe('ChatOngComponent', () => {
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ChatOngComponent);
-    component = fixture.ChatOngComponent;
+    component = fixture.componentInstance;
     fixture.detectChanges();
   });
 

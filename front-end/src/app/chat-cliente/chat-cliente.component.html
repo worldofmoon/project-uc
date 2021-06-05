@@ -1,0 +1,37 @@
+<div class="container mt-4">
+  <mat-card class="mb-4">
+        <div class="inbox_msg">
+          <div class="m-4">
+            <div class="msg_history">
+              <div class="outgoing_msg">
+                <div class="sent_msg">
+                  <p>Olá! Gostaria de confirmar a data de retirada da minha doação.</p>
+                  <span class="time_date"> 11:01 AM    |    June 9</span> </div>
+              </div>
+              <div class="incoming_msg">
+                <!-- <div class="incoming_msg_img"> <img src="./../../assets/images/pessoa1.png" alt="cliente"> </div> -->
+                <div class="received_msg">
+                  <div class="received_withd_msg">
+                    <p>Olá! Por favor, informar a melhor data para realizarmos o agendamento.</p>
+                    <span class="time_date"> 11:01 AM    |    June 9</span></div>
+                </div>
+              </div>
+              
+             
+            </div>
+            <form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">
+              <div class="type_msg">
+                <div class="input_msg_write">
+                  <input type="text" class="form-control box mt-2" name="message" placeholder="Digite sua mensagem..." id="cliente-message" ngModel>
+                  <button class="msg_send_btn" type="submit"><i class="material-icons mt-1 ml-1" aria-hidden="true" >send</i></button>
+                </div>
+              </div>
+            </form>
+            
+          </div>
+        </div>
+      </mat-card>
+      <div class="row">
+        <button class="btn btn-chat mb-2" (click)="backToDonations()">Voltar</button>
+      </div>
+</div>

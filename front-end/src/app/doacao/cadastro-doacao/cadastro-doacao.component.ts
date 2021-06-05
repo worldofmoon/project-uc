@@ -63,7 +63,7 @@ export class CadastroDoacaoComponent implements OnInit {
     this.form.reset();
   }
   gotoChat() {
-    this.router.navigate(['chat-doador']);
+    this.router.navigate(['chat-cliente']);
   }
 
   getNome(): void {

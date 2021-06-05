@@ -12,8 +12,8 @@ import { QuemSomosComponent } from '../quem-somos/quem-somos.component';
 import { CadastroDoacaoComponent } from '../doacao/cadastro-doacao/cadastro-doacao.component';
 import { ListaDoacaoComponent } from '../doacao/lista-doacao/lista-doacao.component';
 import { ControleDoacaoComponent } from '../controle-doacao/controle-doacao.component';
-import { ChatDoadorComponent } from './../chat-doador/chat-doador.component';
-import {ChatOngComponent} from './../chat-ong/chat-ong.component';
+import { ChatClienteComponent } from './../chat-cliente/chat-cliente.component';
+import { ChatOngComponent } from './../chat-ong/chat-ong.component';
 
 const routes: Routes = [
   { path: '', component: ContentComponent },
@@ -23,10 +23,10 @@ const routes: Routes = [
   { path: 'home-logada', component: HomeLogadaComponent, canActivate: [AuthGuard] },
   { path: 'acesso-negado', component: AcessoNegadoComponent},
   { path: 'quem-somos', component: QuemSomosComponent},
-  { path: 'cadastro-doacao', component: CadastroDoacaoComponent, canActivate: [AuthGuard] },
-  { path: 'cadastro-doacao', component: ListaDoacaoComponent, canActivate: [AuthGuard] },
-  { path: 'controle-doacao', component: ControleDoacaoComponent, canActivate: [AuthGuard] },
-  { path: 'chat-doador', component: ChatDoadorComponent, canActivate: [AuthGuard]  },
+  { path: 'cadastro-doacao', component: CadastroDoacaoComponent, canActivate: [AuthGuard] },  
+  { path: 'cadastro-doacao', component: ListaDoacaoComponent, canActivate: [AuthGuard]  }, 
+  { path: 'controle-doacao', component: ControleDoacaoComponent, canActivate: [AuthGuard]  }, 
+  { path: 'chat-cliente', component: ChatClienteComponent, canActivate: [AuthGuard]  },
   { path: 'chat-ong', component: ChatOngComponent, canActivate: [AuthGuard]  },
 ];
 
