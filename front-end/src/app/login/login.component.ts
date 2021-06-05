@@ -5,6 +5,7 @@ import { ModalNotCadastroComponent } from '../modal-not-cadastro/modal-not-cadas
 import { MatDialog } from '@angular/material';
 import { CadastroService } from './shared/cadastro.services';
 import { stringify } from '@angular/core/src/util';
+import axios from 'axios'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,6 +20,7 @@ export class LoginComponent implements OnInit {
   getCadastro;
   logado;
   message;
+  admin = false
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -37,7 +39,6 @@ export class LoginComponent implements OnInit {
   async logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('cadastro');
-    localStorage.removeItem('admin');
     this.ngOnInit();
     this.router.navigate(['home']);
   }
@@ -47,14 +48,13 @@ export class LoginComponent implements OnInit {
       password: this.formLogin.get('password').value
     }
     const result = await this.cadastroService.login(user);
-    let admin = localStorage.getItem('admin');
-    console.log(admin)
+    this.getTypeUser()
     if (result) {
       this.ngOnInit();
-      if (admin) {
-        this.router.navigate(['controle-doacao']);
-      }else{
+      if (this.admin) {
         this.router.navigate(['cadastro-doacao']);
+      } else {
+        this.router.navigate(['controle-doacao']);
       }
 
     } else {
@@ -70,5 +70,14 @@ export class LoginComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  getTypeUser(): void {
+    const self = this;
+    axios.get('http://localhost:3000/api/users/me', { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
+      .then(resp => {
+        self.admin = resp.data.isAdmin
+      })
+
   }
 }

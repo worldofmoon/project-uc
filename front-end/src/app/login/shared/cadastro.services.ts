@@ -11,11 +11,9 @@ export class CadastroService {
 
   async login(user: any) {
     const result = await this.http.post<any>(`http://localhost:3000/api/users/authenticate`, user).toPromise();
-    console.log(result);
     if (result && result.token) {
       window.localStorage.setItem('token', result.token);
       window.localStorage.setItem('cadastro', result.user);
-      window.localStorage.setItem('admin', result.user.isAdmin);
       return true;
     }
 
