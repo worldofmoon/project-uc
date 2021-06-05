@@ -31,9 +31,7 @@ export class LoginComponent implements OnInit {
       email: '',
       password: ''
     });
-    this.logado = localStorage.getItem('cadastro');
-    console.log(this.logado);
-    
+    this.logado = localStorage.getItem('cadastro');    
   }
 
   async logout() {

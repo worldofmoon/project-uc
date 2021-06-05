@@ -6,11 +6,11 @@ import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import axios from 'axios'
 
+
 @Injectable({ providedIn: 'root' })
 export class DoacaoService {
   private doacoes: Doacao[] = [];
   private listaDoacoesAtualizada = new Subject<{ doacoes: Doacao[] }>();
-  user = {}
 
   getListaDeDoacoesAtualizadaObservable() {
     return this.listaDoacoesAtualizada.asObservable();
@@ -55,19 +55,8 @@ export class DoacaoService {
           doacoes: [...this.doacoes]
 
         });
-        console.log(doacoes)
       })
 
-  }
-
-  getNome(): void {
-    let user = '';
-    axios.get('http://localhost:3000/api/users/me', { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
-      .then(resp => {
-          user = resp.data.firstName
-      })
-    this.user = user;
-    console.log(user)
   }
 
 

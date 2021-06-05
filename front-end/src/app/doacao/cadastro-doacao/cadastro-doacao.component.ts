@@ -20,13 +20,16 @@ export class CadastroDoacaoComponent implements OnInit {
   private doacao: Doacao;
   form: FormGroup;
   isDisplayed = true;
-  user = {}
+  user = "Doador"
+
   showMe() {
     if (this.isDisplayed) {
       this.isDisplayed = false;
     } else {
       this.isDisplayed = true;
     }
+
+    
   }
 
   ngOnInit() {
@@ -41,7 +44,7 @@ export class CadastroDoacaoComponent implements OnInit {
         validators: [Validators.required]
       })
     })
-
+    this.getNome()
   }
 
   constructor(public doacaoService: DoacaoService, public route: ActivatedRoute, private router: Router) { }
@@ -61,6 +64,15 @@ export class CadastroDoacaoComponent implements OnInit {
   }
   gotoChat() {
     this.router.navigate(['chat-doador']);
+  }
+
+  getNome(): void {
+    const self = this;
+    axios.get('http://localhost:3000/api/users/me', { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
+      .then(resp => {
+         self.user = resp.data.firstName
+      })
+
   }
 
 }
