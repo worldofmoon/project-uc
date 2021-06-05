@@ -16,6 +16,7 @@ export class ListaDoacaoComponent implements OnInit {
 
   ngOnInit(): void {
     this.doacaoService.getDoacoes();
+    this.doacaoService.getNome();
     this.doacoesSubscription = this.doacaoService
        .getListaDeDoacoesAtualizadaObservable()
        .subscribe((dados: {doacoes: []}) => {

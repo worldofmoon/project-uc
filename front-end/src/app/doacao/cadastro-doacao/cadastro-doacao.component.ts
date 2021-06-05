@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl ,FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Doacao } from '../doacao.model';
 import { DoacaoService } from '../doacao.service';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { debounceTime } from 'rxjs/operators';
 import { MatDialog } from '@angular/material';
+import axios from 'axios'
+
 
 
 @Component({
@@ -18,43 +20,47 @@ export class CadastroDoacaoComponent implements OnInit {
   private doacao: Doacao;
   form: FormGroup;
   isDisplayed = true;
-  name = "Maria";
-  
+  user = {}
   showMe() {
-    if(this.isDisplayed) {
-        this.isDisplayed = false;
+    if (this.isDisplayed) {
+      this.isDisplayed = false;
     } else {
-        this.isDisplayed = true;
+      this.isDisplayed = true;
     }
   }
 
   ngOnInit() {
     this.form = new FormGroup({
-      title: new FormControl (null, {
-      validators: [Validators.required, Validators.minLength(3)]
+      title: new FormControl(null, {
+        validators: [Validators.required, Validators.minLength(3)]
       }),
-      description: new FormControl (null, {
-      validators: [Validators.required]
+      description: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      address: new FormControl(null, {
+        validators: [Validators.required]
       })
-  })
+    })
+
   }
 
-  constructor(public doacaoService: DoacaoService, public route: ActivatedRoute, private router:Router) {}
+  constructor(public doacaoService: DoacaoService, public route: ActivatedRoute, private router: Router) { }
 
-  // onAdicionarDoacao() {
-  //   if (this.form.invalid) {
-  //     return;
-  //   }
-  //   if (this.modo === "criar") {
-  //     this.doacaoService.adicionarDoacao(
-  //       this.form.value.title,
-  //       this.form.value.description,
-  //     );
-  //   }  
-  //   this.form.reset();
-  // }
-  // gotoChat() {
-  //   this.router.navigate(['chat-doador']);
-  // }
+  onAdicionarDoacao() {
+    if (this.form.invalid) {
+      return;
+    }
+    if (this.modo === "criar") {
+      this.doacaoService.adicionarDoacao(
+        this.form.value.title,
+        this.form.value.description,
+        this.form.value.address,
+      );
+    }
+    this.form.reset();
+  }
+  gotoChat() {
+    this.router.navigate(['chat-doador']);
+  }
 
-} 
+}

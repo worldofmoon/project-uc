@@ -3,3 +3,12 @@
     font-weight: bold;
     color: #ffff;
 }
+
+.panel{
+    margin-bottom: 5px;
+}
+
+.title-text{
+    font-weight: bold;
+    margin: 0 5px 0 5px;
+}

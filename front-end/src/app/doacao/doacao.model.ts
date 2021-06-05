@@ -1,8 +1,17 @@
 export interface Doacao {
-
-        id:number ;
+        id: string;
         title: string;
         description: string;
-        status: number;
+        collectionDate: string;
+        address: string;
+        status: string;
+        firstName: string;
+}
 
+export interface DoacaoCadastro {
+        computer: {
+                title: string;
+                description: string;
+        }
+        address: string;
 }

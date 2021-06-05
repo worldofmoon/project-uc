@@ -1,12 +1,7 @@
 <div class="container">
   <div class="row m-2">
-    <p>Olá, {{ name }}</p>
+    <p>Olá, {{ user }}</p>
   </div>
-
-  <div class="row">
-    <h3 class="text-center">Quem estou ajudando</h3>
-  </div>
-
 
   <div class=" row mt-3 mb-3">
     <div class="col-sm">
@@ -31,6 +26,15 @@
             <mat-label>Descrição:</mat-label>
             <input required type="text" matInput name="description" formControlName="description" />
             <mat-error *ngIf="form.get('description')">O campo não pode ser nulo.</mat-error>
+          </mat-form-field>
+        </div>
+
+          
+        <div class="row">
+          <mat-form-field class="col-sm">
+            <mat-label>Endereço:</mat-label>
+            <input required type="text" matInput name="address" formControlName="address" />
+            <mat-error *ngIf="form.get('address')">O campo não pode ser nulo.</mat-error>
           </mat-form-field>
         </div>
     
