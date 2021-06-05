@@ -3,7 +3,7 @@
     <div class="col-12">
 
       <mat-accordion *ngIf="doacoes.length > 0">
-        <h6> Suas Doações:</h6>
+        <h6 class="title-text"> Suas Doações:</h6>
         <mat-expansion-panel class="panel" *ngFor="let doacao of doacoes">
           <mat-expansion-panel-header> <div-text class="title-text">Item Doado:</div-text>{{ doacao.title }} |<div-text class="title-text"> Status:</div-text> {{
             doacao.status }}</mat-expansion-panel-header>

@@ -5,10 +5,11 @@
 }
 
 .panel{
-    margin-bottom: 5px;
+    margin: 5px 0 5px 0;
 }
 
 .title-text{
+    color:#191970;
     font-weight: bold;
     margin: 0 5px 0 5px;
 }

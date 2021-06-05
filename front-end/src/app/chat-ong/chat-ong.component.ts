@@ -64,7 +64,7 @@ export class ChatOngComponent implements OnInit {
   constructor(public chatOngService: ChatOngService, public route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    // this.chatOngService.getChatOng();
+    this.chatOngService.getChatOng();
     // this.chatOngSubscription = this.chatOngService
     //    .getListaChatOngAtualizadaObservable()
     //    .subscribe((dados: {chatOng: []}) => {
