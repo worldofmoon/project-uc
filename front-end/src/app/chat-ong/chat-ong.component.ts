@@ -29,12 +29,12 @@ export class ChatOngComponent implements OnInit {
         validators: [Validators.required, Validators.minLength(8)]
       })
     });
-    this.mensagensSubscription = this.chatOngService
-    .getListaMessagensAtualizadaObservable()
-    .subscribe((dados: {usuarios: []}) => {
-     this.usuarios = dados.usuarios;
+    // this.mensagensSubscription = this.chatOngService
+    // .getListaMessagensAtualizadaObservable()
+    // .subscribe((dados: {usuarios: []}) => {
+    //  this.usuarios = dados.usuarios;
       
-    });
+    // });
     this.getMe()
 
   }
