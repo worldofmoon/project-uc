@@ -16,8 +16,9 @@ export class ChatOngComponent implements OnInit {
   form: FormGroup;
   private message: ChatOng;
   private mensagensSubscription: Subscription;
-  mensagens: ListaMensagens[] = [];
+  usuarios: ListaMensagens[] = [];
   user;
+  userSelecionado;
 
   constructor(public chatOngService: ChatOngService, public route: ActivatedRoute, private router: Router) { }
 
@@ -30,11 +31,25 @@ export class ChatOngComponent implements OnInit {
     });
     this.mensagensSubscription = this.chatOngService
     .getListaMessagensAtualizadaObservable()
-    .subscribe((dados: {mensagens: []}) => {
-     this.mensagens = dados.mensagens;
+    .subscribe((dados: {usuarios: []}) => {
+     this.usuarios = dados.usuarios;
       
     });
     this.getMe()
+
+  }
+
+  onEnviarMensagem() {
+    if (this.form.invalid) {
+      return;
+    }
+    if (this.modo === "enviar") {
+      this.chatOngService.sendMessage(
+        this.userSelecionado,
+        this.form.value.content
+      );
+    }
+    this.form.reset();
   }
 
   backToControlDonations() {
@@ -49,5 +64,9 @@ export class ChatOngComponent implements OnInit {
          console.log(this.user)
       })
   }
+  toggle(event) {
+    this.userSelecionado = event.target.id
+    console.log(this.userSelecionado); 
+ }
 
 }

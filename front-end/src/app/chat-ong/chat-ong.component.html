@@ -4,7 +4,7 @@
       <div class="inbox_people">
         <div class="headind_srch">
           <div class="recent_heading">
-            <h4>Recentes</h4>
+            <h4>Doadores</h4>
           </div>
           <div class="srch_bar">
             <div class="stylish-input-group">
@@ -16,12 +16,12 @@
           </div>
         </div>
         <div class="inbox_chat">
-          <div *ngFor="let mensagem of mensagens">
-            <div class="chat_list" *ngIf="mensagem.fromUserId !== user">
+          <div *ngFor="let usuario of usuarios">
+            <div class="chat_list">
               <div class="chat_people">
                 <div class="chat_img"> <img src="./../../assets/images/user.png" alt="cliente"> </div>
                 <div class="chat_ib">
-                  <h5>{{mensagem.fromUserName}}</h5>
+                  <h5 class="doador" (click)="toggle($event)" id="{{usuario.userId}}">{{usuario.user}}</h5>
                 </div>
               </div>
             </div>
@@ -31,31 +31,23 @@
       </div>
       <div class="mesgs">
         <div class="msg_history">
-          <div class="incoming_msg">
-            <!-- <div class="incoming_msg_img"> <img src="./../../assets/images/pessoa1.png" alt="cliente"> </div> -->
-            <div class="received_msg">
-              <div class="received_withd_msg">
-                <p>Olá! Gostaria de confirmar a data de retirada da minha doação.</p>
-                <span class="time_date"> 11:01 AM | June 9</span>
-              </div>
+          <div class="outgoing_msg"  *ngFor="let mensagem of usuarios">
+            <div class="sent_msg" >
+              <p>{{ mensagem.user.mensagens}}</p>
+              <span class="time_date"> {{ mensagem.createdAt }} | {{ mensagem.createdHour }}</span>
             </div>
           </div>
-          <div class="outgoing_msg">
-            <div class="sent_msg">
-              <p>Olá! Por favor, informar a melhor data para realizarmos o agendamento.</p>
-              <span class="time_date"> 11:01 AM | June 9</span>
-            </div>
-          </div>
-
         </div>
-        <form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">
+        <form [formGroup]="form" (submit)="onEnviarMensagem()">
           <div class="type_msg">
-            <div class="input_msg_write">
-              <input type="text" class="form-control box mt-2 mb-2" name="message" placeholder="Digite sua mensagem..."
-                id="ong-message" ngModel>
-              <button class="msg_send_btn" type="submit"><i class="material-icons mt-1 ml-1 icon-send"
-                  aria-hidden="true">send</i></button>
-            </div>
+            <mat-form-field class="input_msg_write input-text">
+              <input required type="text" placeholder="Digite uma mensagem" matInput name="content"
+                formControlName="content" />
+              <mat-error *ngIf="form.get('content')">O campo deve contar no mínimo 8
+                caracteres</mat-error>
+            </mat-form-field>
+            <button class="msg_send_btn" type="submit"><i class="material-icons mt-1 ml-1"
+                aria-hidden="true">send</i></button>
           </div>
         </form>
       </div>

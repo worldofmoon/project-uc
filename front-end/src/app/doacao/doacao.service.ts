@@ -60,12 +60,13 @@ export class DoacaoService {
   }
 
 
-  adicionarDoacao(title: string, description: string, address: string) {
+  adicionarDoacao(title: string, description: string, collectionDate: string, address: string) {
     const dadosDoacao = {
       computer: {
         title: title,
         description: description
       },
+      collectionDate: collectionDate,
       address: address
     };
 
@@ -75,6 +76,7 @@ export class DoacaoService {
           title: title,
           description: description
         },
+        collectionDate : collectionDate,
         address: address
       };
     });

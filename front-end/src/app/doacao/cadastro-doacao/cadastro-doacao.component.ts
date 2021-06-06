@@ -38,6 +38,9 @@ export class CadastroDoacaoComponent implements OnInit {
       description: new FormControl(null, {
         validators: [Validators.required]
       }),
+      collectionDate: new FormControl(null, {
+        validators: [Validators.required]
+      }),
       address: new FormControl(null, {
         validators: [Validators.required]
       })
@@ -55,6 +58,7 @@ export class CadastroDoacaoComponent implements OnInit {
       this.doacaoService.adicionarDoacao(
         this.form.value.title,
         this.form.value.description,
+        this.form.value.collectionDate,
         this.form.value.address,
       );
     }

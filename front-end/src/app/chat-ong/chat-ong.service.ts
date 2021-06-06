@@ -11,8 +11,8 @@ import axios from 'axios'
 export class ChatOngService {
 
   chatOng: ChatOng[] = [];
-  private mensagens: ListaMensagens[] = [];
-  private listaMensagensAtualizada = new Subject<{ mensagens: ListaMensagens[] }>();
+  private usuarios: ListaMensagens[] = [];
+  private listaMensagensAtualizada = new Subject<{ usuarios: ListaMensagens[] }>();
 
   getListaChatOngAtualizadaObservable() {
     return this.listaMensagensAtualizada.asObservable();
@@ -40,15 +40,15 @@ export class ChatOngService {
     return date.toLocaleString('pt-BR', options);
   }
 
-  sendMessage(to: number, content: string) {
+  sendMessage(userSelecionado: number, content: string) {
     const message = {
-      to: to,
+      to: userSelecionado,
       content: content
     };
 
     this.httpClient.post<{ mensagem: string, id: string }>('http://localhost:3000/api/messages/', message, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } }).subscribe((dados) => {
       const message: ChatOng = {
-        to: to,
+        to: userSelecionado,
         content: content
       };
     });
@@ -58,22 +58,27 @@ export class ChatOngService {
 
     axios.get('http://localhost:3000/api/messages/', { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
       .then(resp => {
-        const mensagens = resp.data[0].messages.map(mensagem => ({
-          content: mensagem.content,
-          createdAt: this.parseDate(mensagem.createdAt),
-          createdHour: this.parseHour(mensagem.createdAt),
-          fromUserName: mensagem.fromUser.firstName,
-          fromUserId: mensagem.fromUser.id,
-          toUserName: mensagem.toUser.firstName,
-          toUserId: mensagem.toUser.id,
+        const usuarios = resp.data.map(usuario => ({
+          user: usuario.user.firstName,
+          userId: usuario.user.id,
+          teste:usuario.messages.content,
+          mensagens: usuario.messages.map(conteudo =>({
+            content: conteudo.content,
+            createdAt: this.parseDate(conteudo.createdAt),
+            createdHour: this.parseHour(conteudo.createdAt),
+            fromUserName: conteudo.fromUser.firstName,
+            fromUserId: conteudo.fromUser.id,
+            toUserName: conteudo.toUser.firstName,
+            toUserId: conteudo.toUser.id,
+          }))       
           
         }))
-        this.mensagens = mensagens.reverse();
+        this.usuarios = usuarios.reverse();
         this.listaMensagensAtualizada.next({
-          mensagens: [...this.mensagens]
+          usuarios: [...this.usuarios]
 
         });
-        console.log(mensagens);
+        console.log(usuarios);
         
       })
   }

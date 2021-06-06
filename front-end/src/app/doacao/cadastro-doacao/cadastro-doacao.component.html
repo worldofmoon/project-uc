@@ -29,6 +29,14 @@
           </mat-form-field>
         </div>
 
+        <div class="row">
+          <mat-form-field class="col-sm">
+            <mat-label>Data para retirada:</mat-label>
+            <input required type="date" matInput name="collectionDate" formControlName="collectionDate" />
+            <mat-error *ngIf="form.get('collectionDate')">O campo não pode ser nulo.</mat-error>
+          </mat-form-field>
+        </div>
+
           
         <div class="row">
           <mat-form-field class="col-sm">

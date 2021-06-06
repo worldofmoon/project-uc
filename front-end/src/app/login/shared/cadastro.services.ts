@@ -13,7 +13,7 @@ export class CadastroService {
     const result = await this.http.post<any>(`http://localhost:3000/api/users/authenticate`, user).toPromise();
     if (result && result.token) {
       window.localStorage.setItem('token', result.token);
-      window.localStorage.setItem('cadastro', result.user);
+      window.localStorage.setItem('cadastro', result.user.isAdmin);
       return true;
     }
 

@@ -21,8 +21,7 @@ export class LoginComponent implements OnInit {
   getCadastro;
   logado;
   message;
-  admin = undefined;
-  
+
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -36,7 +35,6 @@ export class LoginComponent implements OnInit {
       password: ''
     });
     this.logado = localStorage.getItem('cadastro');
-    this.getMe()
   }
 
   async logout() {
@@ -54,17 +52,15 @@ export class LoginComponent implements OnInit {
     
     if (result) {
       this.ngOnInit();
-
-      console.log(this.admin)
-      if (this.admin == false) {
-        this.router.navigate(['cadastro-doacao']);
-      } else {
+      const admin = localStorage.getItem('cadastro');
+      if (admin === 'true') {
         this.router.navigate(['controle-doacao']);
+      } else {
+        this.router.navigate(['cadastro-doacao']);
       }
     } else {
       this.openDialog();
     }
-    this.admin = undefined;
   }
 
   openDialog() {
@@ -77,10 +73,4 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  getMe(): void {
-    axios.get('http://localhost:3000/api/users/me', { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
-      .then(resp => {
-         this.admin = resp.data.isAdmin;
-      })
-  }
 }

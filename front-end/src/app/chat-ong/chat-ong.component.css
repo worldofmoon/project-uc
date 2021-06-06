@@ -5,6 +5,7 @@
 img {
   max-width: 100%;
 }
+
 .inbox_people {
   background: #f8f8f8 none repeat scroll 0 0;
   float: left;
@@ -61,8 +62,9 @@ img {
 
 .chat_ib h5 {
   font-size: 15px;
-  color: #464646;
-  margin: 0 0 8px 0;
+  font-weight: bold;
+  color: #4682b4;
+  margin: 12px 0 8px 0;
 }
 .chat_ib h5 span {
   font-size: 13px;
