@@ -1,9 +1,14 @@
 export class ChatOng {
-    user: string;
-    message: string;
+    to: number;
+    content: string;
+}
 
-    // constructor(user: string, message: string){
-    //     this.user = user;
-    //     this.message = message;
-    // }
+export class ListaMensagens {
+    content: string;
+    createdAt: string;
+    createdHour: string;
+    fromUserName: String;
+    fromUserId: number;
+    toUserName: String;
+    toUserId: number;
 }

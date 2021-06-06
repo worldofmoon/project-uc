@@ -1,114 +1,67 @@
-<div class="container mt-4"> 
-    <mat-card class="mb-4"> 
-        <div class="inbox_msg">
-          <div class="inbox_people">
-            <div class="headind_srch">
-              <div class="recent_heading">
-                <h4>Recentes</h4>
-              </div>
-              <div class="srch_bar">
-                <div class="stylish-input-group">
-                  <input type="text" class="search-bar"  placeholder="Buscar" >
-                  <span class="input-group-addon">
-                  <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
-                  </span> </div>
-              </div>
-            </div>
-            <div class="inbox_chat">
-              <div class="chat_list active_chat">
-                <div class="chat_people">
-                  <div class="chat_img"> <img src="./../../assets/images/pessoa1.png" alt="cliente"> </div>
-                  <div class="chat_ib">
-                    <h5>Rogerio <span class="chat_date">Dec 25</span></h5>
-                    <p>Olá! Gostaria de confirmar a data de retirada da minha doação.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="chat_list">
-                <div class="chat_people">
-                  <div class="chat_img"> <img src="./../../assets/images/pessoa1.png" alt="cliente"> </div>
-                  <div class="chat_ib">
-                    <h5>Karen <span class="chat_date">Dec 25</span></h5>
-                    <p>Boa tarde, vou procisar cancelar minha doação. Como faço?</p>
-                  </div>
-                </div>
-              </div>
-              <div class="chat_list">
-                <div class="chat_people">
-                  <div class="chat_img"> <img src="./../../assets/images/pessoa1.png" alt="cliente"> </div>
-                  <div class="chat_ib">
-                    <h5>Andressa <span class="chat_date">Dec 25</span></h5>
-                    <p>Olá!</p>
-                  </div>
-                </div>
-              </div>
-              <div class="chat_list">
-                <div class="chat_people">
-                  <div class="chat_img"> <img src="./../../assets/images/pessoa1.png" alt="cliente"> </div>
-                  <div class="chat_ib">
-                    <h5>Karina <span class="chat_date">Dec 25</span></h5>
-                    <p>Posso alterar a data que agendamos para retirada?</p>
-                  </div>
-                </div>
-              </div>
-              <div class="chat_list">
-                <div class="chat_people">
-                  <div class="chat_img"> <img src="./../../assets/images/pessoa1.png" alt="cliente"> </div>
-                  <div class="chat_ib">
-                    <h5>Guilherme <span class="chat_date">Dec 25</span></h5>
-                    <p>Olá!</p>
-                  </div>
-                </div>
-              </div>
-              <div class="chat_list">
-                <div class="chat_people">
-                  <div class="chat_img"> <img src="./../../assets/images/pessoa1.png" alt="cliente"> </div>
-                  <div class="chat_ib">
-                    <h5>Aline <span class="chat_date">Dec 25</span></h5>
-                    <p>Olá!</p>
-                  </div>
-                </div>
-              </div>
-              <div class="chat_list">
-                <div class="chat_people">
-                  <div class="chat_img"> <img src="./../../assets/images/pessoa1.png" alt="cliente"> </div>
-                  <div class="chat_ib">
-                    <h5>Fernanda <span class="chat_date">Dec 25</span></h5>
-                    <p>Olá!</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+<div class="container mt-4">
+  <mat-card class="mb-4">
+    <div class="inbox_msg">
+      <div class="inbox_people">
+        <div class="headind_srch">
+          <div class="recent_heading">
+            <h4>Recentes</h4>
           </div>
-          <div class="mesgs">
-            <div class="msg_history">
-              <div class="incoming_msg">
-                <!-- <div class="incoming_msg_img"> <img src="./../../assets/images/pessoa1.png" alt="cliente"> </div> -->
-                <div class="received_msg">
-                  <div class="received_withd_msg">
-                    <p>Olá! Gostaria de confirmar a data de retirada da minha doação.</p>
-                    <span class="time_date"> 11:01 AM    |    June 9</span></div>
-                </div>
-              </div>
-              <div class="outgoing_msg">
-                <div class="sent_msg">
-                  <p>Olá! Por favor, informar a melhor data para realizarmos o agendamento.</p>
-                  <span class="time_date"> 11:01 AM    |    June 9</span> </div>
-              </div>
-             
+          <div class="srch_bar">
+            <div class="stylish-input-group">
+              <input type="text" class="search-bar" placeholder="Buscar">
+              <span class="input-group-addon">
+                <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
+              </span>
             </div>
-            <form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">
-              <div class="type_msg">
-                <div class="input_msg_write">
-                  <input type="text" class="form-control box mt-2 mb-2" name="message" placeholder="Digite sua mensagem..." id="ong-message" ngModel>
-                  <button class="msg_send_btn" type="submit"><i class="material-icons mt-1 ml-1 icon-send" aria-hidden="true" >send</i></button>
-                </div>
-              </div>
-            </form>
           </div>
         </div>
-    </mat-card>
-    <div class="row">
-      <button class="btn btn-chat mb-2" (click)="backToControlDonations()">Voltar</button>
+        <div class="inbox_chat">
+          <div *ngFor="let mensagem of mensagens">
+            <div class="chat_list" *ngIf="mensagem.fromUserId !== user">
+              <div class="chat_people">
+                <div class="chat_img"> <img src="./../../assets/images/user.png" alt="cliente"> </div>
+                <div class="chat_ib">
+                  <h5>{{mensagem.fromUserName}}</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="mesgs">
+        <div class="msg_history">
+          <div class="incoming_msg">
+            <!-- <div class="incoming_msg_img"> <img src="./../../assets/images/pessoa1.png" alt="cliente"> </div> -->
+            <div class="received_msg">
+              <div class="received_withd_msg">
+                <p>Olá! Gostaria de confirmar a data de retirada da minha doação.</p>
+                <span class="time_date"> 11:01 AM | June 9</span>
+              </div>
+            </div>
+          </div>
+          <div class="outgoing_msg">
+            <div class="sent_msg">
+              <p>Olá! Por favor, informar a melhor data para realizarmos o agendamento.</p>
+              <span class="time_date"> 11:01 AM | June 9</span>
+            </div>
+          </div>
+
+        </div>
+        <form (ngSubmit)="sendMessage(sendForm)" #sendForm="ngForm">
+          <div class="type_msg">
+            <div class="input_msg_write">
+              <input type="text" class="form-control box mt-2 mb-2" name="message" placeholder="Digite sua mensagem..."
+                id="ong-message" ngModel>
+              <button class="msg_send_btn" type="submit"><i class="material-icons mt-1 ml-1 icon-send"
+                  aria-hidden="true">send</i></button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
+  </mat-card>
+  <div class="row">
+    <button class="btn btn-chat mb-2" (click)="backToControlDonations()">Voltar</button>
+  </div>
 </div>

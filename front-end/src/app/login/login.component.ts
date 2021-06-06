@@ -12,6 +12,7 @@ import axios from 'axios'
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
   formLogin;
   theEvent;
   key;
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
   getCadastro;
   logado;
   message;
-  admin;
+  admin = undefined;
+  
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -34,6 +36,7 @@ export class LoginComponent implements OnInit {
       password: ''
     });
     this.logado = localStorage.getItem('cadastro');
+    this.getMe()
   }
 
   async logout() {
@@ -48,10 +51,12 @@ export class LoginComponent implements OnInit {
       password: this.formLogin.get('password').value
     }
     const result = await this.cadastroService.login(user);
-    this.getTypeUser()
+    
     if (result) {
       this.ngOnInit();
-      if (this.admin) {
+
+      console.log(this.admin)
+      if (this.admin == false) {
         this.router.navigate(['cadastro-doacao']);
       } else {
         this.router.navigate(['controle-doacao']);
@@ -59,6 +64,7 @@ export class LoginComponent implements OnInit {
     } else {
       this.openDialog();
     }
+    this.admin = undefined;
   }
 
   openDialog() {
@@ -71,12 +77,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  getTypeUser(): void {
-    const self = this;
+  getMe(): void {
     axios.get('http://localhost:3000/api/users/me', { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
       .then(resp => {
-        self.admin = resp.data.isAdmin
+         this.admin = resp.data.isAdmin;
       })
-
   }
 }

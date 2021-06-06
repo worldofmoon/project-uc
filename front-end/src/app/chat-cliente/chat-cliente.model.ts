@@ -1,10 +1,13 @@
 export class ChatCliente {
-    user: string;
-    message: string;
+    content: string;
+}
 
-    // constructor(user: string, message: string){
-    //     this.user = user;
-    //     this.message = message;
-    // }
-
+export class ListaMensagens {
+    content: string;
+    createdAt: string;
+    createdHour: string;
+    fromUserName: String;
+    fromUserId: number;
+    toUserName: String;
+    toUserId: number;
 }

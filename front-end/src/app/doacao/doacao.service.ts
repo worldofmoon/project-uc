@@ -23,7 +23,7 @@ export class DoacaoService {
     if (intStatus === 0) return 'Aguardando aprovação da ong';
     if (intStatus === 1) return 'Aguardando retirada';
     if (intStatus === 2) return 'Em manutenção';
-    if (intStatus === 1) return 'Equipamento doado';
+    if (intStatus === 3) return 'Equipamento doado';
   }
 
   parseDate(inDate) {

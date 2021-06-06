@@ -28,8 +28,6 @@ export class CadastroDoacaoComponent implements OnInit {
     } else {
       this.isDisplayed = true;
     }
-
-    
   }
 
   ngOnInit() {
