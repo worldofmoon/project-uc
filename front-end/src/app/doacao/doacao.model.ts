@@ -13,6 +13,5 @@ export interface DoacaoCadastro {
                 title: string;
                 description: string;
         }
-        collectionDate: String;
         address: string;
 }

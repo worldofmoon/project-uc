@@ -38,9 +38,6 @@ export class CadastroDoacaoComponent implements OnInit {
       description: new FormControl(null, {
         validators: [Validators.required]
       }),
-      collectionDate: new FormControl(null, {
-        validators: [Validators.required]
-      }),
       address: new FormControl(null, {
         validators: [Validators.required]
       })
@@ -58,7 +55,6 @@ export class CadastroDoacaoComponent implements OnInit {
       this.doacaoService.adicionarDoacao(
         this.form.value.title,
         this.form.value.description,
-        this.form.value.collectionDate,
         this.form.value.address,
       );
     }
@@ -72,7 +68,7 @@ export class CadastroDoacaoComponent implements OnInit {
     const self = this;
     axios.get('http://localhost:3000/api/users/me', { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
       .then(resp => {
-         self.user = resp.data.firstName
+        self.user = resp.data.firstName
       })
 
   }

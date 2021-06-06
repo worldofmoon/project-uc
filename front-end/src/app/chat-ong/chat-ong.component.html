@@ -6,14 +6,6 @@
           <div class="recent_heading">
             <h4>Doadores</h4>
           </div>
-          <div class="srch_bar">
-            <div class="stylish-input-group">
-              <input type="text" class="search-bar" placeholder="Buscar">
-              <span class="input-group-addon">
-                <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
-              </span>
-            </div>
-          </div>
         </div>
         <div class="inbox_chat">
           <div *ngFor="let usuario of usuarios">
@@ -26,14 +18,13 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
       <div class="mesgs">
         <div class="msg_history">
-          <div class="outgoing_msg"  *ngFor="let mensagem of usuarios">
-            <div class="sent_msg" >
-              <p>{{ mensagem.user.mensagens}}</p>
+          <div class="outgoing_msg"  *ngFor="let mensagem of mensagens">
+            <div class="sent_msg" [ngClass]="{'sent_msg': mensagem.fromUserId === user, 'received_msg': mensagem.fromUserId !== user}">
+              <p>{{ mensagem.content}}</p>
               <span class="time_date"> {{ mensagem.createdAt }} | {{ mensagem.createdHour }}</span>
             </div>
           </div>

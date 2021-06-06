@@ -20,14 +20,13 @@ export class ChatOngService {
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
-  
   parseDate(inDate) {
     const date = new Date(inDate);
     const options = {
       year: '2-digit',
       month: 'long',
       day: '2-digit'
-  };
+    };
     return date.toLocaleString('pt-BR', options);
   }
 
@@ -36,7 +35,7 @@ export class ChatOngService {
     const options = {
       hour: '2-digit',
       minute: '2-digit'
-  };
+    };
     return date.toLocaleString('pt-BR', options);
   }
 
@@ -61,8 +60,7 @@ export class ChatOngService {
         const usuarios = resp.data.map(usuario => ({
           user: usuario.user.firstName,
           userId: usuario.user.id,
-          teste:usuario.messages.content,
-          mensagens: usuario.messages.map(conteudo =>({
+          mensagens: usuario.messages.map(conteudo => ({
             content: conteudo.content,
             createdAt: this.parseDate(conteudo.createdAt),
             createdHour: this.parseHour(conteudo.createdAt),
@@ -70,22 +68,20 @@ export class ChatOngService {
             fromUserId: conteudo.fromUser.id,
             toUserName: conteudo.toUser.firstName,
             toUserId: conteudo.toUser.id,
-          }))       
-          
+
+          }))
+
         }))
         this.usuarios = usuarios.reverse();
         this.listaMensagensAtualizada.next({
           usuarios: [...this.usuarios]
 
         });
-        console.log(usuarios);
-        
       })
   }
 
   getListaMessagensAtualizadaObservable() {
     return this.listaMensagensAtualizada.asObservable();
   }
-   
-  
+
 }

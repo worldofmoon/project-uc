@@ -7,7 +7,7 @@ img {
 }
 
 .inbox_people {
-  background: #f8f8f8 none repeat scroll 0 0;
+  background: #fff none repeat scroll 0 0;
   float: left;
   overflow: hidden;
   width: 40%;
@@ -26,6 +26,7 @@ img {
   float: left;
   width: 40%;
 }
+
 .srch_bar {
   display: inline-block;
   text-align: right;
@@ -38,9 +39,10 @@ img {
 }
 
 .recent_heading h4 {
-  color: #4682b4;
-  font-size: 21px;
+  color: #191970;
+  font-size: 25px;
   margin: auto;
+  font-weight: bolder;
 }
 .srch_bar input {
   border: 1px solid #cdcdcd;
@@ -83,6 +85,7 @@ img {
   float: left;
   padding: 0 0 0 15px;
   width: 88%;
+  cursor: pointer;
 }
 
 .chat_people {
@@ -90,17 +93,22 @@ img {
   clear: both;
 }
 .chat_list {
-  border-bottom: 1px solid #c4c4c4;
-  margin: 0;
+  border-bottom: 2px solid #c4c4c4;
+  margin: 0 10px 0 0;
   padding: 18px 16px 10px;
 }
 .inbox_chat {
   height: 550px;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 
 .active_chat {
   background: #ebebeb;
+}
+
+.input-text{
+  width: 100%;
+  height: 100px;
 }
 
 .incoming_msg_img {
@@ -108,20 +116,20 @@ img {
   width: 6%;
 }
 .received_msg {
-  display: inline-block;
-  padding: 0 0 0 10px;
-  vertical-align: top;
-  width: 92%;
+  float: left;
+  width: 46%;
 }
-.received_withd_msg p {
+
+.received_msg p {
   background: #ebebeb none repeat scroll 0 0;
   border-radius: 3px;
-  color: #646464;
   font-size: 14px;
   margin: 0;
+  color: #646464;
   padding: 5px 10px 5px 12px;
   width: 100%;
 }
+
 .time_date {
   color: #747474;
   display: block;

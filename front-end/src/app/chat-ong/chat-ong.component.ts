@@ -19,6 +19,7 @@ export class ChatOngComponent implements OnInit {
   usuarios: ListaMensagens[] = [];
   user;
   userSelecionado;
+  mensagens;
 
   constructor(public chatOngService: ChatOngService, public route: ActivatedRoute, private router: Router) { }
 
@@ -66,7 +67,8 @@ export class ChatOngComponent implements OnInit {
   }
   toggle(event) {
     this.userSelecionado = event.target.id
-    console.log(this.userSelecionado); 
+    const user = this.usuarios.find(user => user.userId == this.userSelecionado)    
+    this.mensagens = user.mensagens.reverse()
  }
 
 }

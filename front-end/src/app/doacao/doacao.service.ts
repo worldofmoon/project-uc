@@ -2,10 +2,8 @@ import { Injectable } from '@angular/core';
 import { Doacao, DoacaoCadastro } from './doacao.model';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import axios from 'axios'
-
 
 @Injectable({ providedIn: 'root' })
 export class DoacaoService {
@@ -15,7 +13,6 @@ export class DoacaoService {
   getListaDeDoacoesAtualizadaObservable() {
     return this.listaDoacoesAtualizada.asObservable();
   }
-
 
   constructor(private httpClient: HttpClient, private router: Router) { }
 
@@ -31,7 +28,7 @@ export class DoacaoService {
       const date = new Date(inDate);
       return date.toLocaleString();
     } else {
-      return 'Não definida';
+      return 'Aguardando';
     }
 
   }
@@ -59,14 +56,12 @@ export class DoacaoService {
 
   }
 
-
-  adicionarDoacao(title: string, description: string, collectionDate: string, address: string) {
+  adicionarDoacao(title: string, description: string, address: string) {
     const dadosDoacao = {
       computer: {
         title: title,
         description: description
       },
-      collectionDate: collectionDate,
       address: address
     };
 
@@ -76,7 +71,6 @@ export class DoacaoService {
           title: title,
           description: description
         },
-        collectionDate : collectionDate,
         address: address
       };
     });
