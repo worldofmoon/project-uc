@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http'; // add this line
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material/dialog';
 import { HeaderComponent } from './header/header.component';
 import { ContentComponent } from './content/content.component';
 import { FooterComponent } from './footer/footer.component';
@@ -18,7 +17,7 @@ import { AuthService } from 'auth.service';
 import { AcessoNegadoComponent } from './acesso-negado/acesso-negado.component';
 import { ModalNotCadastroComponent } from './modal-not-cadastro/modal-not-cadastro.component';
 import { SingletonRouterService } from '../services/singletonRouter.service';
-import { MatFormFieldModule, MatCardModule, MatInputModule, MatButtonModule, MatToolbarModule, MatExpansionModule, MatTableModule } from '@angular/material';
+import { MatFormFieldModule, MatCardModule, MatInputModule, MatButtonModule, MatToolbarModule, MatExpansionModule, MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule, MatSelectModule } from '@angular/material';
 //import { NgxMaskModule } from 'ngx-mask';
 
 import { LoginComponent } from './login/login.component';
@@ -30,6 +29,7 @@ import { ControleDoacaoComponent } from './controle-doacao/controle-doacao.compo
 import { ClienteService } from './cadastro-clientes/cliente.service';
 import { ChatOngComponent } from './chat-ong/chat-ong.component';
 import { ChatClienteComponent } from './chat-cliente/chat-cliente.component';
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 
 
 
@@ -50,7 +50,8 @@ import { ChatClienteComponent } from './chat-cliente/chat-cliente.component';
     ListaDoacaoComponent,
     ControleDoacaoComponent,
     ChatOngComponent,
-    ChatClienteComponent
+    ChatClienteComponent,
+    DialogBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -66,6 +67,9 @@ import { ChatClienteComponent } from './chat-cliente/chat-cliente.component';
     MatToolbarModule,
     MatExpansionModule,
     MatTableModule,
+    MatPaginatorModule, 
+    MatSortModule,
+    MatSelectModule,
     HttpClientModule,
     // NbChatModule,
    // NgxMaskModule.forRoot({
@@ -74,7 +78,7 @@ import { ChatClienteComponent } from './chat-cliente/chat-cliente.component';
   ],
 
   providers: [AuthGuard, AuthService, SingletonRouterService, DoacaoService, ClienteService],
-  entryComponents: [ModalNotCadastroComponent],
+  entryComponents: [ModalNotCadastroComponent, DialogBoxComponent],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

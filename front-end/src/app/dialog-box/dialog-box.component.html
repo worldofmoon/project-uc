@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Ação :: <strong>{{action}}</strong></h1>
+<div mat-dialog-content>
+  <mat-form-field *ngIf="action != 'Delete'; else elseTemplate">
+    <input matInput placeholder="{{action}} Data Retirada" matInput [(ngModel)]="local_data.collectionDate">
+  </mat-form-field>
+  <mat-form-field >
+    <mat-select placeholder="{{action}} Status" matInput [(ngModel)]="local_data.status">
+      <mat-option value="Aguardando aprovação"> Aguardando Aprovação </mat-option>
+      <mat-option value="Aguardando Retirada"> Aguardando Retirada </mat-option>
+      <mat-option value="Em Manutenção"> Em Manutenção </mat-option>
+      <mat-option value="Equipamento Doado"> Equipamento Doado </mat-option>
+     </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button class="btn-color" mat-button (click)="doAction()">{{action}}</button>
+  <button mat-button (click)="closeDialog()" mat-flat-button color="warn">Cancel</button>
+</div>

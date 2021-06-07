@@ -28,12 +28,12 @@ export class ChatClienteComponent implements OnInit {
         validators: [Validators.required, Validators.minLength(8)]
       })
     });
-    // this.mensagensSubscription = this.chatClienteService
-    // .getListaDeMessagensAtualizadaObservable()
-    // .subscribe((dados: {mensagens: []}) => {
-    //  this.mensagens = dados.mensagens;
+    this.mensagensSubscription = this.chatClienteService
+    .getListaDeMessagensAtualizadaObservable()
+    .subscribe((dados: {mensagens: []}) => {
+     this.mensagens = dados.mensagens;
       
-    // });
+    });
     this.getMe()
 
   }

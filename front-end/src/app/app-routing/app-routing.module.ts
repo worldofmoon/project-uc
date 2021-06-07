@@ -23,9 +23,9 @@ const routes: Routes = [
   { path: 'home-logada', component: HomeLogadaComponent, canActivate: [AuthGuard] },
   { path: 'acesso-negado', component: AcessoNegadoComponent},
   { path: 'quem-somos', component: QuemSomosComponent},
-  { path: 'cadastro-doacao', component: CadastroDoacaoComponent, canActivate: [AuthGuard] },  
+  { path: 'cadastro-doacao', component: CadastroDoacaoComponent, canActivate: [AuthGuard] },
   { path: 'cadastro-doacao', component: ListaDoacaoComponent, canActivate: [AuthGuard]  }, 
-  { path: 'controle-doacao', component: ControleDoacaoComponent, canActivate: [AuthGuard]  }, 
+  { path: 'controle-doacao', component: ControleDoacaoComponent , canActivate: [AuthGuard]}, 
   { path: 'chat-cliente', component: ChatClienteComponent, canActivate: [AuthGuard]  },
   { path: 'chat-ong', component: ChatOngComponent, canActivate: [AuthGuard]  },
 ];
