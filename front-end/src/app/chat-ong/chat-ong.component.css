@@ -91,6 +91,10 @@ img {
 .chat_people {
   overflow: hidden;
   clear: both;
+  
+}
+.escurece:hover{
+  background-color: #F0F8FF;
 }
 .chat_list {
   border-bottom: 2px solid #c4c4c4;

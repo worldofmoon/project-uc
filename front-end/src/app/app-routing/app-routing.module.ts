@@ -9,9 +9,12 @@ import { AuthGuard } from 'auth.guard';
 import { AcessoNegadoComponent } from '../acesso-negado/acesso-negado.component';
 import { LoginComponent } from '../login/login.component';
 import { QuemSomosComponent } from '../quem-somos/quem-somos.component';
+
 import { CadastroDoacaoComponent } from '../doacao/cadastro-doacao/cadastro-doacao.component';
 import { ListaDoacaoComponent } from '../doacao/lista-doacao/lista-doacao.component';
-import { ControleDoacaoComponent } from '../controle-doacao/controle-doacao.component';
+
+import { ControleDoacaoComponent } from '../controle-doacao/lista-doacao-ong/controle-doacao.component';
+
 import { ChatClienteComponent } from './../chat-cliente/chat-cliente.component';
 import { ChatOngComponent } from './../chat-ong/chat-ong.component';
 
@@ -25,7 +28,9 @@ const routes: Routes = [
   { path: 'quem-somos', component: QuemSomosComponent},
   { path: 'cadastro-doacao', component: CadastroDoacaoComponent, canActivate: [AuthGuard] },
   { path: 'cadastro-doacao', component: ListaDoacaoComponent, canActivate: [AuthGuard]  }, 
+
   { path: 'controle-doacao', component: ControleDoacaoComponent , canActivate: [AuthGuard]}, 
+
   { path: 'chat-cliente', component: ChatClienteComponent, canActivate: [AuthGuard]  },
   { path: 'chat-ong', component: ChatOngComponent, canActivate: [AuthGuard]  },
 ];

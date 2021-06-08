@@ -1,0 +1,51 @@
+<div class="container espaco">
+
+  <div class="row m-2 text-user espe">
+    <p>Olá, {{ user }}!</p>
+  </div>
+  <div class="row ">
+    <button class="btn btn-chat mb-2" (click)="gotoOngChat()">Chat</button>
+  </div>
+  <div class="row box-cadastro">
+    <div class="col-12">
+
+      <mat-accordion *ngIf="doacoes.length > 0">
+        <h6 class="title-text">Doações:</h6>
+        <mat-expansion-panel class="panel" *ngFor="let doacao of doacoes">
+          <mat-expansion-panel-header>
+            <div-text class="title-text">Id: </div-text> {{doacao.id}} ❯<div-text class="title-text">Item Doado:
+            </div-text>{{ doacao.title }} |<div-text class="title-text"> Status:</div-text> {{
+            doacao.status }}
+          </mat-expansion-panel-header>
+          <p>
+            <div-text class="title-text">Descrição:</div-text>{{ doacao.description }}
+          </p>
+          <p>
+            <div-text class="title-text">Endereço de retirada:</div-text>{{ doacao.address }}
+          </p>
+          <p>
+            <div-text class="title-text">Data de Retirada:</div-text>{{ doacao.collectionDate }}
+          </p>
+          <p>
+            <div-text class="title-text">Atualizar Status:</div-text>
+            <mat-form-field>
+              <mat-label>{{ doacao.status }}</mat-label>
+              <mat-select (selectionChange)="changeClient($event.value, doacao.id)">
+                <mat-option value="0"> Aguardando Aprovação </mat-option>
+                <mat-option value="1"> Aguardando Retirada </mat-option>
+                <mat-option value="2"> Em Manutenção </mat-option>
+                <mat-option value="3"> Equipamento Doado </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </p>
+          <mat-action-row>
+            <div class="btn-atualizar" mat-button color="primary" (click)="editar($event)" id="{{doacao.id}}" >Atualizar</div>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </mat-accordion>
+      <p class="mat-body-1 text-center" *ngIf="doacoes.length <= 0">
+        Nenhuma doação cadastrada.
+      </p>
+    </div>
+  </div>
+</div>

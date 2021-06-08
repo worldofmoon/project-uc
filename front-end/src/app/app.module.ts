@@ -18,18 +18,22 @@ import { AcessoNegadoComponent } from './acesso-negado/acesso-negado.component';
 import { ModalNotCadastroComponent } from './modal-not-cadastro/modal-not-cadastro.component';
 import { SingletonRouterService } from '../services/singletonRouter.service';
 import { MatFormFieldModule, MatCardModule, MatInputModule, MatButtonModule, MatToolbarModule, MatExpansionModule, MatTableModule, MatPaginatorModule, MatSortModule, MatDialogModule, MatSelectModule } from '@angular/material';
-//import { NgxMaskModule } from 'ngx-mask';
 
 import { LoginComponent } from './login/login.component';
 import { QuemSomosComponent } from './quem-somos/quem-somos.component';
+
 import { CadastroDoacaoComponent } from './doacao/cadastro-doacao/cadastro-doacao.component';
 import { ListaDoacaoComponent } from './doacao/lista-doacao/lista-doacao.component';
 import { DoacaoService } from './doacao/doacao.service';
-import { ControleDoacaoComponent } from './controle-doacao/controle-doacao.component';
+
+import { ControleDoacaoComponent } from './controle-doacao/lista-doacao-ong/controle-doacao.component';
+import { ControleDoacaoService } from './controle-doacao/controle-doacao.service'
+
+
 import { ClienteService } from './cadastro-clientes/cliente.service';
 import { ChatOngComponent } from './chat-ong/chat-ong.component';
 import { ChatClienteComponent } from './chat-cliente/chat-cliente.component';
-import { DialogBoxComponent } from './dialog-box/dialog-box.component';
+
 
 
 
@@ -51,7 +55,7 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     ControleDoacaoComponent,
     ChatOngComponent,
     ChatClienteComponent,
-    DialogBoxComponent
+
   ],
   imports: [
     BrowserModule,
@@ -67,18 +71,14 @@ import { DialogBoxComponent } from './dialog-box/dialog-box.component';
     MatToolbarModule,
     MatExpansionModule,
     MatTableModule,
-    MatPaginatorModule, 
+    MatPaginatorModule,
     MatSortModule,
     MatSelectModule,
     HttpClientModule,
-    // NbChatModule,
-   // NgxMaskModule.forRoot({
-    //  dropSpecialCharacters: true // false ao salvar, a mascara sera mantida, true salva sem
-  //  }),
   ],
 
-  providers: [AuthGuard, AuthService, SingletonRouterService, DoacaoService, ClienteService],
-  entryComponents: [ModalNotCadastroComponent, DialogBoxComponent],
+  providers: [AuthGuard, AuthService, SingletonRouterService, DoacaoService, ControleDoacaoService, ClienteService],
+  entryComponents: [ModalNotCadastroComponent],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

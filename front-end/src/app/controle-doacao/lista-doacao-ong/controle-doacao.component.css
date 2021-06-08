@@ -1,0 +1,46 @@
+.btn-cadastro {
+  background-color: #4682b4;
+  font-weight: bold;
+  color: #ffff;
+}
+
+.panel {
+  margin: 5px 0 5px 0;
+}
+
+.title-text {
+  color: #191970;
+  font-weight: bold;
+  margin: 0 5px 0 5px;
+}
+
+.btn-chat {
+  position: relative;
+  padding: 10px;
+  font-size: 16px;
+  width: 10%;
+  background: #191970;
+  color: #fff;
+  border: 2px solid;
+  margin-left: 80%;
+}
+
+.text-user {
+  font-size: 20px;
+  color: #4682b4;
+  font-weight: bold;
+}
+
+.btn-atualizar {
+  color: #fff;
+  cursor: pointer;
+  margin: 0 10px 0 0;
+  background-color: #4682b4;
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.espaco {
+  margin-bottom: 60px;
+}
